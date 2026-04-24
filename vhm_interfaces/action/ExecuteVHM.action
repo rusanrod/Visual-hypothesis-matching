@@ -1,0 +1,46 @@
+# ExecuteVHM.action
+
+# Goal
+string raw_command
+
+bool use_image_enhancement
+bool estimate_pose
+
+int32 num_synthetic_images
+int32 seed
+
+bool save_generated_images
+bool save_debug_artifacts
+
+bool save_reference_bank
+bool use_reference_bank
+string reference_bank_id
+
+float32 match_threshold
+---
+# Result
+bool success
+string final_state
+string message
+
+string class_name
+
+int32 generated_reference_count
+bool used_reference_bank
+
+int32 best_candidate_index
+sensor_msgs/Image best_candidate_mask
+sensor_msgs/Image best_candidate_crop
+geometry_msgs/PointStamped best_candidate_centroid
+float32 best_score
+
+bool pose_estimated
+geometry_msgs/PoseStamped target_pose
+
+---
+# Feedback
+string current_stage
+float32 progress
+string status_message
+int32 current_candidate_count
+int32 current_reference_count

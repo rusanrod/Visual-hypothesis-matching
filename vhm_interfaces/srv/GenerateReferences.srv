@@ -1,0 +1,20 @@
+# Request
+string positive_prompt
+string negative_prompt
+int32 num_images
+int32 seed
+
+bool save_generated_images
+bool save_reference_bank
+string reference_bank_id
+
+---
+# Response
+bool success
+string message
+
+int32 generated_reference_count
+string[] generated_image_paths
+
+bool reference_bank_saved
+string reference_bank_path
