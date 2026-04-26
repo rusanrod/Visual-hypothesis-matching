@@ -1,0 +1,14 @@
+# SegmentImage.srv
+
+# Request
+string input_dir #Optional for analitics
+bool save_masks
+bool save_crops
+
+---
+# Response
+bool success
+string message
+
+sensor_msgs/Image[] masks
+sensor_msgs/Image[] crops

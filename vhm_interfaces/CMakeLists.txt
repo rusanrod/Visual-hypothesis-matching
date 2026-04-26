@@ -16,6 +16,7 @@ find_package(geometry_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/GenerateReferences.srv"
+  "srv/SegmentImage.srv"
   "action/ExecuteVHM.action"
   DEPENDENCIES 
     sensor_msgs 
