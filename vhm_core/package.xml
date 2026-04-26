@@ -3,16 +3,15 @@
 <package format="3">
   <name>vhm_core</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Main core package for VHM</description>
   <maintainer email="rsandovr@gmail.com">rusanrod</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
   <depend>rclpy</depend>
+  <depend>vhm_interfaces</depend>
 
-  <test_depend>ament_copyright</test_depend>
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
+  <exec_depend>python3-torch</exec_depend>
+
 
   <export>
     <build_type>ament_python</build_type>

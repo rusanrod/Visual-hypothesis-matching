@@ -15,10 +15,11 @@ setup(
     zip_safe=True,
     maintainer='rusanrod',
     maintainer_email='rsandovr@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Main core package for VHM',
+    license='MIT',
     entry_points={
         'console_scripts': [
+            'image_generation_node = vhm_core.image_generation.image_generation_node:main'
         ],
     },
 )
