@@ -1,6 +1,7 @@
+#GenerateReferences.srv
+
 # Request
-string positive_prompt
-string negative_prompt
+string prompt
 int32 num_images
 int32 seed
 
@@ -14,7 +15,6 @@ bool success
 string message
 
 int32 generated_reference_count
-string[] generated_image_paths
+string output_dir
 
 bool reference_bank_saved
-string reference_bank_path
