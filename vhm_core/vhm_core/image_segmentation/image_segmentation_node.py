@@ -178,7 +178,7 @@ class FastSAMNode(Node):
                         "bbox": bbox,
                         "area": det["area"],
                         "area_ratio": det["area_ratio"],
-                        "score": det["score"],
+                        #"score": det["score"],
                         "mask_path": mask_path,
                         "crop_path": crop_path,
                     })

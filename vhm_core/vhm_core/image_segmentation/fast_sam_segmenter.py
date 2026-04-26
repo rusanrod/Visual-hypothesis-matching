@@ -30,6 +30,31 @@ class FastSAMSegmenter:
 
         self.model = FastSAM(self.model_path)
 
+        torch.backends.cudnn.benchmark = True
+
+        if torch.cuda.is_available():
+            torch.set_float32_matmul_precision("high")
+
+        self.warmup()
+    
+    def warmup(self, width: int = 640, height: int = 480, runs: int = 2):
+        dummy = np.zeros((height, width, 3), dtype=np.uint8)
+
+        for _ in range(runs):
+            with torch.inference_mode():
+                _ = self.model(
+                    source=dummy,
+                    device=self.device,
+                    conf=self.conf,
+                    iou=self.iou,
+                    imgsz=self.imgsz,
+                    retina_masks=self.retina_masks,
+                    verbose=False,
+                    half=True if self.device == "cuda" else False,
+                )
+
+        self.cleanup_gpu_memory()
+
     def segment_image(self, image: np.ndarray) -> List[Dict[str, Any]]:
         if image is None:
             return []
@@ -43,15 +68,17 @@ class FastSAMSegmenter:
         h, w = image.shape[:2]
         image_area = h * w
 
-        results = self.model(
-            source=image,
-            device=self.device,
-            conf=self.conf,
-            iou=self.iou,
-            imgsz=self.imgsz,
-            retina_masks=self.retina_masks,
-            verbose=False,
-        )
+        with torch.inference_mode():
+            results = self.model(
+                source=image,
+                device=self.device,
+                conf=self.conf,
+                iou=self.iou,
+                imgsz=self.imgsz,
+                retina_masks=self.retina_masks,
+                verbose=False,
+                half=True if self.device == "cuda" else False,
+            )
 
         if not results:
             return []
@@ -67,9 +94,10 @@ class FastSAMSegmenter:
         if result.boxes is not None:
             boxes = result.boxes.xyxy.detach().cpu().numpy()
 
-        scores = []
-        if result.boxes is not None and result.boxes.conf is not None:
-            scores = result.boxes.conf.detach().cpu().numpy()
+        # Not used
+        # scores = []
+        # if result.boxes is not None and result.boxes.conf is not None:
+        #     scores = result.boxes.conf.detach().cpu().numpy()
 
         detections = []
 
@@ -93,7 +121,7 @@ class FastSAMSegmenter:
 
             crop = self._crop_from_bbox(image, bbox)
 
-            score = float(scores[idx]) if idx < len(scores) else 0.0
+            #score = float(scores[idx]) if idx < len(scores) else 0.0
 
             detections.append({
                 "index": len(detections),
@@ -102,7 +130,7 @@ class FastSAMSegmenter:
                 "bbox": bbox,
                 "area": area,
                 "area_ratio": round(area_ratio, 6),
-                "score": round(score, 6),
+                #"score": round(score, 6),
                 "crop": crop,
             })
 
