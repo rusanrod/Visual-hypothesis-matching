@@ -19,7 +19,8 @@ setup(
     license='MIT',
     entry_points={
         'console_scripts': [
-            'image_generation_node = vhm_core.image_generation.image_generation_node:main'
+            'image_generation_node = vhm_core.image_generation.image_generation_node:main',
+            "image_segmentation_node = vhm_core.image_segmentation.image_segmentation_node:main",
         ],
     },
 )
