@@ -1,0 +1,27 @@
+# Request
+
+# Opciones:
+# "pth"        -> carga embeddings desde .pth
+# "image_dir"  -> carga imágenes desde carpeta y calcula embeddings
+# "images"     -> carga imágenes recibidas en el request y calcula embeddings
+string source_type
+
+string reference_id
+string pth_path
+string image_dir
+
+sensor_msgs/Image[] images
+
+bool save_cache
+string cache_output_dir
+
+---
+bool success
+string message
+
+string active_reference_id
+int32 reference_count
+int32 embedding_dim
+
+bool cache_saved
+string cache_path

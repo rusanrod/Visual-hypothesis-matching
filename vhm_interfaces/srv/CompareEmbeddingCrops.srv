@@ -1,0 +1,27 @@
+# Request
+sensor_msgs/Image[] crops
+
+bool return_similarity_matrix
+bool return_best_matches
+
+---
+bool success
+string message
+
+string active_reference_id
+
+int32 crop_count
+int32 reference_count
+
+# Matriz aplanada row-major:
+# similarity_matrix[crop_idx * reference_count + reference_idx]
+float32[] similarity_matrix
+
+# Mejor referencia por crop
+int32[] best_reference_indices
+float32[] best_reference_scores
+
+# Mejor match global
+int32 best_crop_index
+int32 best_reference_index
+float32 best_score
