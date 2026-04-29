@@ -3,7 +3,6 @@ import torch
 import rclpy
 from rclpy.node import Node
 
-import os
 from pathlib import Path
 import json
 import time
@@ -35,7 +34,7 @@ class ImageGenerationNode(Node):
             ],
         )
 
-        self.default_output_dir = os.path.join(str(Path.home()), "vhm_ws", "src", "vhm_results", "generated_references")
+        self.default_output_dir = Path.joinpath(Path.home(), "vhm_ws", "src", "vhm_results", "generated_references")
 
         self.prompt_builder = PromptBuilder(
             base_style=self.get_parameter("base_style").value

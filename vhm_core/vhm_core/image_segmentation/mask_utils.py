@@ -4,7 +4,7 @@ import numpy as np
 
 
 def save_mask(mask: np.ndarray, output_path: Path) -> str:
-    output_path.parent.mkdir(parents=True, exist_ok=True)
+    #output_path.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(output_path), mask)
     return str(output_path)
 
@@ -17,7 +17,7 @@ def apply_mask_to_image(image: np.ndarray, mask: np.ndarray) -> np.ndarray:
 
 
 def save_crop(image: np.ndarray, mask: np.ndarray, bbox: list[int], output_path: Path) -> str:
-    output_path.parent.mkdir(parents=True, exist_ok=True)
+    #output_path.parent.mkdir(parents=True, exist_ok=True)
 
     x1, y1, x2, y2 = bbox
     h, w = image.shape[:2]

@@ -40,6 +40,9 @@ class FastSAMSegmenter:
     def warmup(self, width: int = 640, height: int = 480, runs: int = 2):
         dummy = np.zeros((height, width, 3), dtype=np.uint8)
 
+        if self.model is None:
+            raise RuntimeError("Model is not loaded")
+
         for _ in range(runs):
             with torch.inference_mode():
                 _ = self.model(
@@ -56,6 +59,9 @@ class FastSAMSegmenter:
         self.cleanup_gpu_memory()
 
     def segment_image(self, image: np.ndarray) -> List[Dict[str, Any]]:
+        if self.model is None:
+            raise RuntimeError("Model is not loaded")
+        
         if image is None:
             return []
 
