@@ -3,9 +3,7 @@
 # Request
 string input_dir # Optional for analitics
 string reference_bank_id
-bool save_masks
-bool save_crops
-
+bool save_logs
 
 ---
 # Response

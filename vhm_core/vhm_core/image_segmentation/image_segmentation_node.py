@@ -3,7 +3,6 @@ import json
 import time
 
 import cv2
-from matplotlib import image
 import rclpy
 from rclpy.node import Node
 
@@ -25,7 +24,7 @@ class FastSAMNode(Node):
         self.declare_parameters(
             namespace="",
             parameters=[
-                ("image_topic", "/hardware/camera/image_raw"),
+                ("image_topic", "/head_rgbd_sensor/rgb/image_rect_color"),
                 ("model_path", "FastSAM-x.pt"),
                 ("device", "cuda"),
                 ("conf", 0.4),
@@ -72,13 +71,15 @@ class FastSAMNode(Node):
 
 
     # === Image loader ===
-    def _load_request_images(self, input_dir: str) -> tuple[bool, list[dict]]:
-        offline_mode = bool(input_dir.strip())
+    def _load_request_images(self, input_dir: str) -> list[dict]:
+        input_dir = input_dir.strip()
+        offline_mode = (len(input_dir) > 0)
 
         if offline_mode:
-            return offline_mode, self._load_images_from_dir(input_dir)
+            return self._load_images_from_dir(input_dir)
 
-        return offline_mode, self._load_latest_topic_image()
+        self.get_logger().info("No input_dir provided, using latest topic image.")
+        return self._load_latest_topic_image()
     
     def _load_images_from_dir(self, input_dir: str) -> list[dict]:
         input_path = Path(input_dir)
@@ -144,26 +145,20 @@ class FastSAMNode(Node):
             all_crops_msg = []
             segmentation_records = []
             
-            offline_mode, images = self._load_request_images(request.input_dir)
+            images = self._load_request_images(request.input_dir)
 
             if not images:
                 raise RuntimeError("No images to process.")
             
-            output_dir: Path | None = None
-            masks_dir: Path | None = None
-            crops_dir: Path | None = None
 
-            if offline_mode:
-                output_dir = self._build_output_dir(request.reference_bank_id)
+            output_dir = self._build_output_dir(request.reference_bank_id)
 
-                masks_dir = output_dir / "masks"
-                crops_dir = output_dir / "crops"
+            masks_dir = output_dir / "masks"
+            crops_dir = output_dir / "crops"
 
-                if request.save_masks:
-                    masks_dir.mkdir(parents=True, exist_ok=True)
-
-                if request.save_crops:
-                    crops_dir.mkdir(parents=True, exist_ok=True)
+            if request.save_logs:
+                masks_dir.mkdir(parents=True, exist_ok=True)
+                crops_dir.mkdir(parents=True, exist_ok=True)
             
             for image_idx, item in enumerate(images):
                 image = item["image"]
@@ -187,17 +182,11 @@ class FastSAMNode(Node):
                     crop_msg = self.bridge.cv2_to_imgmsg(crop, encoding="bgr8")
                     all_crops_msg.append(crop_msg)
 
-                    if offline_mode and masks_dir and crops_dir:
-                        if request.save_masks:
-                            if offline_mode:
-                                mask_path = masks_dir / f"{Path(image_name).stem}_mask_{seg_idx:03d}.png"
-                                mask_path = save_mask(mask, mask_path)
-
-                        if request.save_crops:
-                            if offline_mode:
-                                crop_path = crops_dir / f"{Path(image_name).stem}_crop_{seg_idx:03d}.png"
-                                crop_path = save_crop(image, mask, bbox, crop_path)
-
+                    if request.save_logs:
+                        mask_path = masks_dir / f"{Path(image_name).stem}_mask_{seg_idx:03d}.png"
+                        mask_path = save_mask(mask, mask_path)
+                        crop_path = crops_dir / f"{Path(image_name).stem}_crop_{seg_idx:03d}.png"
+                        crop_path = save_crop(image, mask, bbox, crop_path)
 
                     image_record["segments"].append({
                         "segment_index": seg_idx,
@@ -212,7 +201,7 @@ class FastSAMNode(Node):
 
                 segmentation_records.append(image_record)
 
-            if offline_mode:
+            if request.save_logs:
                 self._save_segmentation_info(
                     output_dir=output_dir,
                     segments=segmentation_records,
@@ -258,7 +247,7 @@ class FastSAMNode(Node):
 
         total_time = end_time - start_time
         processed_count = len(segments)
-        total_segments = sum(item.get("segment_count", 0) for item in segments)
+        total_segments = sum(len(item.get("segments", [])) for item in segments)
 
         payload = {
             "output_dir": str(output_dir),
