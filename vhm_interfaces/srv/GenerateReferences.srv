@@ -5,16 +5,14 @@ string prompt
 int32 num_images
 int32 seed
 
-bool save_generated_images
+string experiment_id
 bool save_reference_bank
-string reference_bank_id
 
 ---
 # Response
 bool success
 string message
 
+sensor_msgs/Image[] references
 int32 generated_reference_count
 string output_dir
-
-bool reference_bank_saved
