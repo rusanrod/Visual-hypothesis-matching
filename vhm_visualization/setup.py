@@ -19,6 +19,7 @@ setup(
     license='TODO: License declaration',
     entry_points={
         'console_scripts': [
+            'get_scene_node = vhm_visualization.get_scene:main',
         ],
     },
 )
