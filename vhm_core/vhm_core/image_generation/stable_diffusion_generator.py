@@ -5,7 +5,7 @@ from dataclasses import dataclass
 import torch
 import gc
 
-from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
+from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler #type: ignore
 
 
 @dataclass
@@ -100,7 +100,7 @@ class StableDiffusionGenerator:
                     guidance_scale=self.guidance_scale,
                     generator=generator,
                     num_images_per_prompt=current_batch_size,
-                ).images
+                ).images #type: ignore
 
             for j, image in enumerate(images):
                 image_index = len(results)

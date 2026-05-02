@@ -1,13 +1,15 @@
+
 import torch
 
 import rclpy
 from rclpy.node import Node
 
+import random
 from pathlib import Path
 import json
 import time
 
-from vhm_interfaces.srv import GenerateReferences
+from vhm_interfaces.srv import GenerateReferences #type: ignore
 
 from vhm_core.image_generation.stable_diffusion_generator import StableDiffusionGenerator
 from vhm_core.image_generation.prompt_builder import PromptBuilder
@@ -17,9 +19,7 @@ class ImageGenerationNode(Node):
     def __init__(self):
         super().__init__("image_generation_node")
 
-        self.declare_parameters(
-            namespace="",
-            parameters=[
+        params = [
                 ("model_id", "runwayml/stable-diffusion-v1-5"),
                 ("device", "cuda"),
                 ("dtype", "float16"),
@@ -32,27 +32,29 @@ class ImageGenerationNode(Node):
                 ("negative_prompt", "blurry, low quality, distorted, deformed"),
                 ("base_style", "single object, centered, clean background, realistic photo"),
             ],
-        )
+
+        for name, default in params[0]:
+            self.declare_parameter(name, default)
 
         self.default_output_dir = Path.joinpath(Path.home(), "vhm_ws", "src", "vhm_results", "generated_references")
 
         self.prompt_builder = PromptBuilder(
-            base_style=self.get_parameter("base_style").value
+            base_style=self.get_parameter("base_style").get_parameter_value().string_value
         )
 
         self.get_logger().info("Cargando Stable Diffusion...")
 
         self.generator = StableDiffusionGenerator(
-            model_id=self.get_parameter("model_id").value,
-            device=self.get_parameter("device").value,
-            dtype=self.get_parameter("dtype").value,
-            enable_xformers=self.get_parameter("enable_xformers").value,
-            enable_attention_slicing=self.get_parameter("enable_attention_slicing").value,
-            width=self.get_parameter("width").value,
-            height=self.get_parameter("height").value,
-            steps=self.get_parameter("steps").value,
-            guidance_scale=self.get_parameter("guidance_scale").value,
-            negative_prompt=self.get_parameter("negative_prompt").value,
+            model_id=self.get_parameter("model_id").get_parameter_value().string_value,
+            device=self.get_parameter("device").get_parameter_value().string_value,
+            dtype=self.get_parameter("dtype").get_parameter_value().string_value,
+            enable_xformers=self.get_parameter("enable_xformers").get_parameter_value().bool_value,
+            enable_attention_slicing=self.get_parameter("enable_attention_slicing").get_parameter_value().bool_value,
+            width=self.get_parameter("width").get_parameter_value().integer_value,
+            height=self.get_parameter("height").get_parameter_value().integer_value,
+            steps=self.get_parameter("steps").get_parameter_value().integer_value,
+            guidance_scale=self.get_parameter("guidance_scale").get_parameter_value().double_value,
+            negative_prompt=self.get_parameter("negative_prompt").get_parameter_value().string_value,
         )
 
         self.img_gen_srv = self.create_service(
@@ -63,8 +65,8 @@ class ImageGenerationNode(Node):
 
         self.get_logger().info("Nodo image_generation listo.")
 
-    def _build_output_dir(self, reference_bank_id: str) -> str:
-        bank_id = reference_bank_id.strip() if reference_bank_id else "default"
+    def _build_output_dir(self, experiment_id: str) -> str:
+        bank_id = experiment_id.strip() if experiment_id else "test"
 
         timestamp = time.strftime("%Y%m%d_%H%M%S")
         output_dir = Path(self.default_output_dir) / bank_id / timestamp
@@ -75,7 +77,7 @@ class ImageGenerationNode(Node):
 
     def _save_reference_bank(
         self,
-        reference_bank_id: str,
+        experiment_id: str,
         prompt: str,
         seed: int,
         num_images_requested: int,
@@ -85,7 +87,7 @@ class ImageGenerationNode(Node):
         end_time: float,
     ) -> str:
 
-        bank_id = reference_bank_id.strip() if reference_bank_id else "default"
+        bank_id = experiment_id.strip() if experiment_id else "test"
 
         output_dir = Path(image_paths[0]).parent if image_paths else Path(self.default_output_dir) / bank_id
         bank_path = output_dir / "reference_bank.json"
@@ -119,7 +121,7 @@ class ImageGenerationNode(Node):
 
             # --- configuración del modelo ---
             "model_id": self.generator.model_id,
-            "scheduler": type(self.generator.pipe.scheduler).__name__,
+            "scheduler": type(self.generator.pipe.scheduler).__name__, #type: ignore
             "width": self.generator.width,
             "height": self.generator.height,
             "steps": self.generator.steps,
@@ -135,7 +137,7 @@ class ImageGenerationNode(Node):
             # --- entorno ---
             "gpu": gpu_metadata,
             "device": self.generator.device,
-            "torch_dtype": str(self.generator.pipe.unet.dtype),
+            "torch_dtype": str(self.generator.pipe.unet.dtype), #type: ignore
 
             # --- outputs ---
             "output_dir": str(output_dir),
@@ -175,10 +177,10 @@ class ImageGenerationNode(Node):
     def generate_callback(self, request, response):
         try:
             num_images = request.num_images if request.num_images > 0 else 10
-            seed = request.seed if request.seed >= 0 else 43
+            seed = request.seed if request.seed > 0 else random.randint(0, 1000)
             batch_size = 5
 
-            output_dir = self._build_output_dir(request.reference_bank_id)
+            output_dir = self._build_output_dir(request.experiment_id)
 
             self.get_logger().info(f"Prompt: {request.prompt}")
             self.get_logger().info(f"Generating {num_images} reference images...")
@@ -193,7 +195,7 @@ class ImageGenerationNode(Node):
                 num_images=num_images,
                 seed=seed,
                 output_dir=output_dir,
-                save_images=request.save_generated_images,
+                save_images=request.save_reference_bank,
                 batch_size=batch_size
             )
 
@@ -201,11 +203,9 @@ class ImageGenerationNode(Node):
 
             image_paths = [img.path for img in generated]
 
-            reference_bank_saved = False
-
             if request.save_reference_bank:
                 self._save_reference_bank(
-                    reference_bank_id=request.reference_bank_id,
+                    experiment_id=request.experiment_id,
                     prompt=request.prompt,
                     seed=seed,
                     num_images_requested=num_images,
@@ -214,13 +214,11 @@ class ImageGenerationNode(Node):
                     start_time=start_time,
                     end_time=end_time
                 )
-                reference_bank_saved = True
 
             response.success = True
             response.message = "References generated successfully."
             response.generated_reference_count = len(image_paths)
             response.output_dir = output_dir
-            response.reference_bank_saved = reference_bank_saved
 
             return response
 
@@ -231,7 +229,6 @@ class ImageGenerationNode(Node):
             response.message = str(e)
             response.generated_reference_count = 0
             response.output_dir = ""
-            response.reference_bank_saved = False
 
             return response
         
