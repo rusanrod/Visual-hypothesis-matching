@@ -2,7 +2,7 @@
 
 # Request
 string input_dir # Optional for analitics
-string reference_bank_id
+string experiment_id
 bool save_logs
 
 ---

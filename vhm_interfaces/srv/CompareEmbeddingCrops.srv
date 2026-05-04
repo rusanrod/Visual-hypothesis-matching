@@ -8,7 +8,7 @@ bool return_best_matches
 bool success
 string message
 
-string active_reference_id
+string experiment_id
 
 int32 crop_count
 int32 reference_count

@@ -6,7 +6,7 @@
 # "images"     -> carga imágenes recibidas en el request y calcula embeddings
 string source_type
 
-string reference_id
+string experiment_id
 string pth_path
 string image_dir
 
