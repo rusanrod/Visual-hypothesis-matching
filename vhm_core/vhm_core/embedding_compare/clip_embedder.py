@@ -1,5 +1,5 @@
 import gc
-from typing import List
+from typing import List, cast
 
 import torch
 import numpy as np
@@ -19,12 +19,12 @@ class CLIPEmbedder:
 
         self.dtype = torch.float16 if dtype == "float16" and self.device == "cuda" else torch.float32
 
-        self.model = CLIPModel.from_pretrained(
+        self.model : CLIPModel = CLIPModel.from_pretrained(
             self.model_name,
             torch_dtype=self.dtype,
-        ).to(self.device)
+        ).to(self.device) #type: ignore
 
-        self.processor = CLIPProcessor.from_pretrained(self.model_name)
+        self.processor = cast(CLIPProcessor, CLIPProcessor.from_pretrained(self.model_name))
         self.model.eval()
 
 

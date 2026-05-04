@@ -8,7 +8,7 @@ from rclpy.node import Node
 
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
-from vhm_interfaces.srv import SegmentImage
+from vhm_interfaces.srv import SegmentImage #type: ignore
 
 from vhm_core.image_segmentation.fast_sam_segmenter import FastSAMSegmenter
 from vhm_core.image_segmentation.mask_utils import save_mask, save_crop
@@ -21,9 +21,7 @@ class FastSAMNode(Node):
         self.bridge = CvBridge()
         self.last_image_msg = None
 
-        self.declare_parameters(
-            namespace="",
-            parameters=[
+        params = [
                 ("image_topic", "/head_rgbd_sensor/rgb/image_rect_color"),
                 ("model_path", "FastSAM-x.pt"),
                 ("device", "cuda"),
@@ -31,25 +29,27 @@ class FastSAMNode(Node):
                 ("iou", 0.9),
                 ("imgsz", 640),
                 ("retina_masks", True),
-            ],
-        )
+            ]
+
+        for name, default in params:
+            self.declare_parameter(name, default)
 
         self.default_output_dir = Path.joinpath(Path.home(), "vhm_ws", "src", "vhm_results", "image_segmentations")
 
         self.image_sub = self.create_subscription(
             Image,
-            self.get_parameter("image_topic").value,
+            self.get_parameter("image_topic").get_parameter_value().string_value,
             self.image_callback,
             10,
         )
 
         self.segmenter = FastSAMSegmenter(
-            model_path=self.get_parameter("model_path").value,
-            device=self.get_parameter("device").value,
-            conf=self.get_parameter("conf").value,
-            iou=self.get_parameter("iou").value,
-            imgsz=self.get_parameter("imgsz").value,
-            retina_masks=self.get_parameter("retina_masks").value,
+            model_path=self.get_parameter("model_path").get_parameter_value().string_value,
+            device=self.get_parameter("device").get_parameter_value().string_value,
+            conf=self.get_parameter("conf").get_parameter_value().double_value,
+            iou=self.get_parameter("iou").get_parameter_value().double_value,
+            imgsz=self.get_parameter("imgsz").get_parameter_value().integer_value,
+            retina_masks=self.get_parameter("retina_masks").get_parameter_value().bool_value,
         )
 
         self.segmentation_srv = self.create_service(

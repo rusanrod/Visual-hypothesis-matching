@@ -2,14 +2,13 @@ import time
 from pathlib import Path
 
 import torch
-import cv2
 import numpy as np
 import rclpy
 from rclpy.node import Node
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 
-from vhm_interfaces.srv import LoadEmbeddingReferences, CompareEmbeddingCrops
+from vhm_interfaces.srv import LoadEmbeddingReferences, CompareEmbeddingCrops #type: ignore
 
 from vhm_core.embedding_compare.clip_embedder import CLIPEmbedder
 
@@ -27,19 +26,23 @@ class EmbeddingCompareNode(Node):
         self.reference_cache_path = ""
         self.embedding_dim = 0
 
-        self.declare_parameters(
-            namespace="",
-            parameters=[
+        params = [
                 ("model_name", "openai/clip-vit-base-patch32"),
                 ("device", "cuda"),
                 ("dtype", "float16"),
-            ],
-        )
+            ]
+
+        for name, default in params[0]:
+            self.declare_parameter(name, default)
+
+        model_name = self.get_parameter("model_name").get_parameter_value().string_value
+        device = self.get_parameter("device").get_parameter_value().string_value
+        dtype = self.get_parameter("dtype").get_parameter_value().string_value
 
         self.embedder = CLIPEmbedder(
-            model_name=self.get_parameter("model_name").value,
-            device=self.get_parameter("device").value,
-            dtype=self.get_parameter("dtype").value,
+            model_name=model_name,
+            device=device,
+            dtype=dtype,
         )
 
         self.load_references_srv = self.create_service(
