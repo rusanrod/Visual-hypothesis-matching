@@ -33,7 +33,7 @@ class ImageGenerationNode(Node):
                 ("base_style", "single object, centered, clean background, realistic photo"),
             ],
 
-        for name, default in params[0]:
+        for name, default in params:
             self.declare_parameter(name, default)
 
         self.default_output_dir = Path.joinpath(Path.home(), "vhm_ws", "src", "vhm_results", "generated_references")

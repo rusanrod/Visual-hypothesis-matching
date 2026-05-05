@@ -19,11 +19,10 @@ class EmbeddingCompareNode(Node):
 
         self.bridge = CvBridge()
 
-        self.active_reference_id = ""
+        self.active_experiment_id = ""
         self.reference_embeddings = None
         self.reference_metadata = []
         self.reference_source = ""
-        self.reference_cache_path = ""
         self.embedding_dim = 0
 
         params = [
@@ -32,8 +31,10 @@ class EmbeddingCompareNode(Node):
                 ("dtype", "float16"),
             ]
 
-        for name, default in params[0]:
+        for name, default in params:
             self.declare_parameter(name, default)
+
+        self.default_output_dir = Path.joinpath(Path.home(), "vhm_ws", "src", "vhm_results", "image_embeddings")
 
         model_name = self.get_parameter("model_name").get_parameter_value().string_value
         device = self.get_parameter("device").get_parameter_value().string_value
@@ -57,82 +58,89 @@ class EmbeddingCompareNode(Node):
             self.compare_crops_callback,
         )
 
-        self.get_logger().info("embedding_compare_node ready.")
+        self.get_logger().info("Embedding compare node ready.")
 
+
+    def _build_output_dir(self, experiment_id: str) -> Path:
+        output_dir = Path(self.default_output_dir) / experiment_id
+        output_dir.mkdir(parents=True, exist_ok=True)
+        return output_dir
+    
+    def _get_reference_pth_path(self, experiment_dir: Path) -> Path:
+        return experiment_dir / "reference_embeddings.pth"
+    
     # === Callbacks ===
 
     def load_references_callback(self, request, response):
         try:
+            experiment_id = request.experiment_id or "test"
+            experiment_dir = self._build_output_dir(request.experiment_id)
             source_type = request.source_type.strip().lower()
 
+            experiment_saved = False
+
             if source_type == "pth":
-                payload = self._load_references_from_pth(request.pth_path)
+                payload = self._load_references_from_pth(experiment_dir)
 
                 embeddings = payload["embeddings"]
                 metadata = payload.get("metadata", [])
-                reference_id = payload.get("reference_id", request.reference_id)
-                cache_path = request.pth_path
-                cache_saved = False
+                experiment_id = payload.get("experiment_id", request.experiment_id)
 
             elif source_type == "image_dir":
                 embeddings, metadata = self._load_references_from_image_dir(
-                    image_dir=request.image_dir,
+                    image_dir=experiment_dir,
                 )
 
-                reference_id = request.reference_id or Path(request.image_dir).name
-                cache_path = ""
-                cache_saved = False
-
-                if request.save_cache:
-                    cache_path = self._save_reference_cache(
-                        reference_id=reference_id,
+                if request.save_experiment:
+                    self._save_reference_embeddings(
+                        experiment_id=experiment_id,
                         embeddings=embeddings,
                         metadata=metadata,
                         source_type=source_type,
-                        output_dir=request.cache_output_dir or request.image_dir,
+                        experiment_dir=experiment_dir,
                     )
-                    cache_saved = True
+                    experiment_saved = True
 
             elif source_type == "images":
                 embeddings, metadata = self._load_references_from_ros_images(
                     images=request.images,
                 )
 
-                reference_id = request.reference_id or f"runtime_refs_{int(time.time())}"
-                cache_path = ""
-                cache_saved = False
-
-                if request.save_cache:
-                    output_dir = request.cache_output_dir or "/tmp/vhm_embedding_cache"
-                    cache_path = self._save_reference_cache(
-                        reference_id=reference_id,
+                if request.save_experiment:
+                    self._save_reference_embeddings(
+                        experiment_id=experiment_id,
                         embeddings=embeddings,
                         metadata=metadata,
                         source_type=source_type,
-                        output_dir=output_dir,
+                        experiment_dir=experiment_dir,
                     )
-                    cache_saved = True
+                    experiment_saved = True
 
             else:
                 raise RuntimeError(
                     f"Invalid source_type '{request.source_type}'. "
                     "Use: 'pth', 'image_dir', or 'images'."
                 )
+            
+            embeddings = embeddings.detach().cpu()
 
-            self.active_reference_id = reference_id
-            self.reference_embeddings = embeddings.cpu()
+            if embeddings.ndim != 2:
+                raise RuntimeError(f"Embeddings must be a 2D tensor. Got shape: {embeddings.shape}")
+
+            self.active_experiment_id = experiment_id
+            self.reference_embeddings = embeddings
             self.reference_metadata = metadata
             self.reference_source = source_type
-            self.reference_cache_path = cache_path
             self.embedding_dim = int(embeddings.shape[-1])
 
             response.success = True
-            response.message = "References loaded successfully."
-            response.active_reference_id = self.active_reference_id
+            response.message = (
+                f"References loaded from '{source_type}' "
+                f"for experiment '{experiment_id}'."
+            )
             response.reference_count = int(embeddings.shape[0])
             response.embedding_dim = self.embedding_dim
-            response.cache_saved = cache_saved
-            response.cache_path = cache_path
+            response.experiment_saved = experiment_saved
 
             return response
 
@@ -141,11 +149,9 @@ class EmbeddingCompareNode(Node):
 
             response.success = False
             response.message = str(e)
-            response.active_reference_id = self.active_reference_id
             response.reference_count = 0
             response.embedding_dim = 0
-            response.cache_saved = False
-            response.cache_path = ""
+            response.experiment_saved = False
 
             return response
 
@@ -174,7 +180,7 @@ class EmbeddingCompareNode(Node):
 
             response.success = True
             response.message = "Embedding comparison completed."
-            response.active_reference_id = self.active_reference_id
+            response.active_experiment_id = self.active_experiment_id
 
             response.crop_count = int(similarity.shape[0])
             response.reference_count = int(similarity.shape[1])
@@ -208,7 +214,7 @@ class EmbeddingCompareNode(Node):
 
             response.success = False
             response.message = str(e)
-            response.active_reference_id = self.active_reference_id
+            response.active_experiment_id = self.active_experiment_id
 
             response.crop_count = 0
             response.reference_count = 0
@@ -235,16 +241,17 @@ class EmbeddingCompareNode(Node):
             if p.is_file() and p.suffix.lower() in exts
         ])
 
-    def _load_references_from_pth(self, pth_path: str) -> dict:
-        path = Path(pth_path)
+    def _load_references_from_pth(self, pth_path: Path) -> dict:
 
-        if not path.exists():
-            raise RuntimeError(f"pth_path does not exist: {path}")
+        pth_path = self._get_reference_pth_path(pth_path)
 
-        payload = torch.load(str(path), map_location="cpu")
+        if not pth_path.exists():
+            raise RuntimeError(f"pth_path does not exist: {pth_path}")
+
+        payload = torch.load(str(pth_path), map_location="cpu")
 
         if "embeddings" not in payload:
-            raise RuntimeError(f"Invalid cache file. Missing 'embeddings': {path}")
+            raise RuntimeError(f"Invalid cache file. Missing 'embeddings': {pth_path}")
 
         embeddings = payload["embeddings"]
 
@@ -255,20 +262,19 @@ class EmbeddingCompareNode(Node):
     
     def _load_references_from_image_dir(
         self,
-        image_dir: str,
+        image_dir: Path,
     ) -> tuple[torch.Tensor, list[dict]]:
-        path = Path(image_dir)
 
-        if not path.exists():
-            raise RuntimeError(f"image_dir does not exist: {path}")
+        if not image_dir.exists():
+            raise RuntimeError(f"image_dir does not exist: {image_dir}")
 
-        if not path.is_dir():
-            raise RuntimeError(f"image_dir is not a directory: {path}")
+        if not image_dir.is_dir():
+            raise RuntimeError(f"image_dir is not a directory: {image_dir}")
 
-        image_paths = self._collect_image_paths(path)
+        image_paths = self._collect_image_paths(image_dir)
 
         if not image_paths:
-            raise RuntimeError(f"No reference images found in: {path}")
+            raise RuntimeError(f"No reference images found in: {image_dir}")
 
         embeddings = self.embedder.encode_image_paths([str(p) for p in image_paths])
 
@@ -324,32 +330,35 @@ class EmbeddingCompareNode(Node):
 
         return cv_images
     
-    def _save_reference_cache(
+
+    def _save_reference_embeddings(
         self,
-        reference_id: str,
+        experiment_id: str,
         embeddings: torch.Tensor,
         metadata: list[dict],
         source_type: str,
-        output_dir: str,
+        experiment_dir: Path,
     ) -> str:
-        output_path = Path(output_dir)
-        output_path.mkdir(parents=True, exist_ok=True)
+        experiment_dir.mkdir(parents=True, exist_ok=True)
 
-        cache_path = output_path / f"{reference_id}_reference_embeddings.pth"
+        pth_path = self._get_reference_pth_path(experiment_dir)
 
         payload = {
-            "reference_id": reference_id,
+            "experiment_id": experiment_id,
             "source_type": source_type,
             "model_name": self.embedder.model_name,
             "embedding_dim": int(embeddings.shape[-1]),
             "reference_count": int(embeddings.shape[0]),
-            "embeddings": embeddings.cpu(),
+            "embeddings": embeddings.detach().cpu(),
             "metadata": metadata,
             "created_at": time.strftime("%Y-%m-%d %H:%M:%S"),
         }
 
-        torch.save(payload, str(cache_path))
-        return str(cache_path)
+        torch.save(payload, str(pth_path))
+
+        self.get_logger().info(f"Reference embeddings saved: {pth_path}")
+
+        return str(pth_path)
     
 
 

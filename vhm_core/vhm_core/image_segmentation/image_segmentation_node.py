@@ -60,13 +60,13 @@ class FastSAMNode(Node):
 
         self.get_logger().info("FAST SAM segmentation node ready.")
 
-    def _build_output_dir(self, reference_bank_id: str) -> Path:
-        bank_id = reference_bank_id.strip() if reference_bank_id else "default"
+    def _build_output_dir(self, experiment_id: str) -> Path:
+        experiment_id = experiment_id.strip() if experiment_id else "test"
 
         timestamp = time.strftime("%Y%m%d_%H%M%S")
-        output_dir = Path(self.default_output_dir) / bank_id / timestamp
-
+        output_dir = Path(self.default_output_dir) / experiment_id / timestamp
         output_dir.mkdir(parents=True, exist_ok=True)
+
         return output_dir
 
 
@@ -151,7 +151,7 @@ class FastSAMNode(Node):
                 raise RuntimeError("No images to process.")
             
 
-            output_dir = self._build_output_dir(request.reference_bank_id)
+            output_dir = self._build_output_dir(request.experiment_id)
 
             masks_dir = output_dir / "masks"
             crops_dir = output_dir / "crops"
