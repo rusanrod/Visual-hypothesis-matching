@@ -7,21 +7,16 @@
 string source_type
 
 string experiment_id
-string pth_path
-string image_dir
 
 sensor_msgs/Image[] images
 
-bool save_cache
-string cache_output_dir
+bool save_experiment
 
 ---
 bool success
 string message
 
-string active_reference_id
 int32 reference_count
 int32 embedding_dim
 
-bool cache_saved
-string cache_path
+bool experiment_saved
