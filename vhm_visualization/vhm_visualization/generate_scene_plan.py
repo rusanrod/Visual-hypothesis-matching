@@ -132,8 +132,8 @@ class ScenePlanGenerator:
 
                     # Cheatsheet / ground truth manual
                     "ground_truth": {
-                        "bbox_xyxy": None,
-                        "mask_file": None,
+                        "crop_index": None,
+                        "annotated": False,
                     },
 
                 })
