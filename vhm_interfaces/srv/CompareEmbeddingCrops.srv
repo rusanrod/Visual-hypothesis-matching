@@ -1,14 +1,21 @@
 # Request
+
+# Opciones:
+# "image_dir"  -> carga imágenes desde carpeta y calcula embeddings
+# "images"     -> carga imágenes recibidas en el request y calcula embeddings
+
+string source_type
+string experiment_id
+
 sensor_msgs/Image[] crops
 
+bool save_experiment
 bool return_similarity_matrix
 bool return_best_matches
 
 ---
 bool success
 string message
-
-string experiment_id
 
 int32 crop_count
 int32 reference_count
