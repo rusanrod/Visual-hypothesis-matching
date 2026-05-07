@@ -1,6 +1,8 @@
 import time
 from pathlib import Path
+import json
 
+import cv2
 import torch
 import numpy as np
 import rclpy
@@ -11,6 +13,7 @@ from sensor_msgs.msg import Image
 from vhm_interfaces.srv import LoadEmbeddingReferences, CompareEmbeddingCrops #type: ignore
 
 from vhm_core.embedding_compare.clip_embedder import CLIPEmbedder
+from vhm_core.utlis.result_utils import VHMResultsManager
 
 
 class EmbeddingCompareNode(Node):
@@ -33,9 +36,7 @@ class EmbeddingCompareNode(Node):
 
         for name, default in params:
             self.declare_parameter(name, default)
-
-        self.default_output_dir = Path.joinpath(Path.home(), "vhm_ws", "src", "vhm_results", "image_embeddings")
-
+        
         model_name = self.get_parameter("model_name").get_parameter_value().string_value
         device = self.get_parameter("device").get_parameter_value().string_value
         dtype = self.get_parameter("dtype").get_parameter_value().string_value
@@ -61,43 +62,39 @@ class EmbeddingCompareNode(Node):
         self.get_logger().info("Embedding compare node ready.")
 
 
-    def _build_output_dir(self, experiment_id: str) -> Path:
-        output_dir = Path(self.default_output_dir) / experiment_id
-        output_dir.mkdir(parents=True, exist_ok=True)
-        return output_dir
-    
-    def _get_reference_pth_path(self, experiment_dir: Path) -> Path:
-        return experiment_dir / "reference_embeddings.pth"
-    
     # === Callbacks ===
 
     def load_references_callback(self, request, response):
         try:
             experiment_id = request.experiment_id or "test"
-            experiment_dir = self._build_output_dir(request.experiment_id)
             source_type = request.source_type.strip().lower()
 
+            results_mgr = VHMResultsManager(experiment_id=experiment_id)
             experiment_saved = False
 
             if source_type == "pth":
-                payload = self._load_references_from_pth(experiment_dir)
+                pth_path = results_mgr.require_reference_embeddings()
+
+                payload = self._load_references_from_pth(pth_path)
 
                 embeddings = payload["embeddings"]
                 metadata = payload.get("metadata", [])
-                experiment_id = payload.get("experiment_id", request.experiment_id)
+                experiment_id = payload.get("experiment_id", experiment_id)
 
             elif source_type == "image_dir":
-                embeddings, metadata = self._load_references_from_image_dir(
-                    image_dir=experiment_dir,
-                )
+                image_dir = results_mgr.require_reference_images_dir()
+
+                embeddings, metadata = self._load_references_from_image_dir(image_dir, results_mgr)
 
                 if request.save_experiment:
+                    paths = results_mgr.prepare_reference_dirs()
+
                     self._save_reference_embeddings(
                         experiment_id=experiment_id,
                         embeddings=embeddings,
                         metadata=metadata,
                         source_type=source_type,
-                        experiment_dir=experiment_dir,
+                        pth_path=paths["reference_embeddings_path"],
                     )
                     experiment_saved = True
 
@@ -107,12 +104,14 @@ class EmbeddingCompareNode(Node):
                 )
 
                 if request.save_experiment:
+                    paths = results_mgr.prepare_reference_dirs()
+
                     self._save_reference_embeddings(
                         experiment_id=experiment_id,
                         embeddings=embeddings,
                         metadata=metadata,
                         source_type=source_type,
-                        experiment_dir=experiment_dir,
+                        pth_path=paths["reference_embeddings_path"],
                     )
                     experiment_saved = True
 
@@ -162,25 +161,98 @@ class EmbeddingCompareNode(Node):
         try:
             if self.reference_embeddings is None:
                 raise RuntimeError("No active reference embeddings loaded.")
+            
+            experiment_id = request.experiment_id or "test"
+            source_type = request.source_type.strip().lower()
 
-            crops = self._ros_images_to_cv(request.crops)
+            results_mgr = VHMResultsManager(experiment_id=experiment_id)
+            
+            crop_names = []
+            crop_paths = []
+            crops = []
 
+            if source_type == "images":
+                crops = self._ros_images_to_cv(request.crops)
+                crop_names = [
+                    f"crop_{idx:03d}" 
+                    for idx in range(len(crops))
+                    ]
+            
+            elif source_type == "image_dir":
+                crops_dir = results_mgr.require_crops_dir()
+                crop_paths = results_mgr.collect_image_paths(crops_dir)
+
+                if not crop_paths:
+                    raise RuntimeError(f"No crop images found in: {crops_dir}")
+
+                for path in crop_paths:
+                    crop = cv2.imread(str(path))
+                    if crop is None:
+                        self.get_logger().warn(f"Could not read crop image: {path}")
+                        continue
+                    crops.append(crop)
+                    crop_names.append(path.name)
+
+            else:
+                raise RuntimeError(
+                    f"Invalid source_type '{request.source_type}'. "
+                    "Use: 'image_dir' or 'images'."
+                )
+            
             if not crops:
-                raise RuntimeError("No crops received.")
+                raise RuntimeError("No valid crops received.")
 
-            crop_embeddings = self.embedder.encode_cv_images(crops).cpu()
-
+            crop_embeddings = self.embedder.encode_cv_images(crops).detach().cpu()
+            self.reference_embeddings = self.reference_embeddings.detach().cpu()
             similarity = crop_embeddings @ self.reference_embeddings.T
-
+            
             crop_best_scores, crop_best_ref_indices = similarity.max(dim=1)
-
             best_crop_index = int(crop_best_scores.argmax().item())
             best_reference_index = int(crop_best_ref_indices[best_crop_index].item())
             best_score = float(crop_best_scores[best_crop_index].item())
+            
+            save_experiment = getattr(request, "save_experiment", False)
+            if save_experiment:
+                paths = results_mgr.prepare_embedding_results_dir()
+
+                results_payload = {
+                    "experiment_id": experiment_id,
+                    "reference_source": self.reference_source,
+                    "crop_source": source_type,
+                    "crop_count": int(similarity.shape[0]),
+                    "reference_count": int(similarity.shape[1]),
+                    "embedding_dim": self.embedding_dim,
+                    "best_crop_index": best_crop_index,
+                    "best_crop_name": crop_names[best_crop_index] if crop_names else None,
+                    "best_reference_index": best_reference_index, #maybe this is not used
+                    "best_score": best_score,
+                    "best_reference_indices": [
+                        int(x) for x in crop_best_ref_indices.tolist()
+                    ],
+                    "best_reference_scores": [
+                        float(x) for x in crop_best_scores.tolist()
+                    ],
+                    "crop_names": crop_names,
+                    "crop_paths": [str(p) for p in crop_paths],
+                    "reference_metadata": self.reference_metadata,
+                    "created_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                }
+
+                with open(paths["comparison_results_path"], "w", encoding="utf-8") as f:
+                    json.dump(results_payload, f, indent=4, ensure_ascii=False)
+
+                np.save(
+                    paths["similarity_matrix_path"],
+                    similarity.detach().cpu().numpy()
+                )
+    
+                self.get_logger().info(
+                    f"Comparison results saved: {paths['comparison_results_path']}"
+                )
+
 
             response.success = True
             response.message = "Embedding comparison completed."
-            response.active_experiment_id = self.active_experiment_id
 
             response.crop_count = int(similarity.shape[0])
             response.reference_count = int(similarity.shape[1])
@@ -214,7 +286,6 @@ class EmbeddingCompareNode(Node):
 
             response.success = False
             response.message = str(e)
-            response.active_experiment_id = self.active_experiment_id
 
             response.crop_count = 0
             response.reference_count = 0
@@ -230,21 +301,8 @@ class EmbeddingCompareNode(Node):
 
         finally:
             self.embedder.cleanup_gpu_memory()
-    
-    # === Helper Methods ===
-
-    def _collect_image_paths(self, input_dir: Path) -> list[Path]:
-        exts = {".jpg", ".jpeg", ".png", ".bmp", ".webp", ".tiff", ".tif"}
-
-        return sorted([
-            p for p in input_dir.iterdir()
-            if p.is_file() and p.suffix.lower() in exts
-        ])
 
     def _load_references_from_pth(self, pth_path: Path) -> dict:
-
-        pth_path = self._get_reference_pth_path(pth_path)
-
         if not pth_path.exists():
             raise RuntimeError(f"pth_path does not exist: {pth_path}")
 
@@ -263,15 +321,13 @@ class EmbeddingCompareNode(Node):
     def _load_references_from_image_dir(
         self,
         image_dir: Path,
+        results_mgr: VHMResultsManager,
     ) -> tuple[torch.Tensor, list[dict]]:
 
         if not image_dir.exists():
             raise RuntimeError(f"image_dir does not exist: {image_dir}")
 
-        if not image_dir.is_dir():
-            raise RuntimeError(f"image_dir is not a directory: {image_dir}")
-
-        image_paths = self._collect_image_paths(image_dir)
+        image_paths = results_mgr.collect_image_paths(image_dir)
 
         if not image_paths:
             raise RuntimeError(f"No reference images found in: {image_dir}")
@@ -321,10 +377,8 @@ class EmbeddingCompareNode(Node):
                     msg,
                     desired_encoding="bgr8",
                 )
-
                 if cv_img is not None and cv_img.size > 0:
                     cv_images.append(cv_img)
-
             except Exception as e:
                 self.get_logger().warn(f"Could not convert ROS image: {e}")
 
@@ -337,11 +391,10 @@ class EmbeddingCompareNode(Node):
         embeddings: torch.Tensor,
         metadata: list[dict],
         source_type: str,
-        experiment_dir: Path,
+        pth_path: Path,
     ) -> str:
-        experiment_dir.mkdir(parents=True, exist_ok=True)
 
-        pth_path = self._get_reference_pth_path(experiment_dir)
+        pth_path.parent.mkdir(parents=True, exist_ok=True)
 
         payload = {
             "experiment_id": experiment_id,
@@ -355,11 +408,10 @@ class EmbeddingCompareNode(Node):
         }
 
         torch.save(payload, str(pth_path))
-
         self.get_logger().info(f"Reference embeddings saved: {pth_path}")
 
         return str(pth_path)
-    
+        
 
 
 def main(args=None):

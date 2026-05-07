@@ -1,19 +1,19 @@
 
-import torch
-
-import rclpy
-from rclpy.node import Node
-
 import random
 from pathlib import Path
 import json
 import time
+
+import torch
+import rclpy
+from rclpy.node import Node
 
 from vhm_interfaces.srv import GenerateReferences #type: ignore
 
 from vhm_core.image_generation.stable_diffusion_generator import StableDiffusionGenerator
 from vhm_core.image_generation.prompt_builder import PromptBuilder
 
+from vhm_core.utlis.result_utils import VHMResultsManager
 
 class ImageGenerationNode(Node):
     def __init__(self):
@@ -31,12 +31,10 @@ class ImageGenerationNode(Node):
                 ("guidance_scale", 7.5),
                 ("negative_prompt", "blurry, low quality, distorted, deformed"),
                 ("base_style", "single object, centered, clean background, realistic photo"),
-            ],
+            ]
 
         for name, default in params:
             self.declare_parameter(name, default)
-
-        self.default_output_dir = Path.joinpath(Path.home(), "vhm_ws", "src", "vhm_results", "generated_references")
 
         self.prompt_builder = PromptBuilder(
             base_style=self.get_parameter("base_style").get_parameter_value().string_value
@@ -65,19 +63,9 @@ class ImageGenerationNode(Node):
 
         self.get_logger().info("Nodo image_generation listo.")
 
-    def _build_output_dir(self, experiment_id: str) -> str:
-        bank_id = experiment_id.strip() if experiment_id else "test"
-
-        timestamp = time.strftime("%Y%m%d_%H%M%S")
-        output_dir = Path(self.default_output_dir) / bank_id / timestamp
-
-        output_dir.mkdir(parents=True, exist_ok=True)
-        return str(output_dir)
-
-
     def _save_reference_bank(
         self,
-        experiment_id: str,
+        results_mgr: VHMResultsManager,
         prompt: str,
         seed: int,
         num_images_requested: int,
@@ -87,11 +75,7 @@ class ImageGenerationNode(Node):
         end_time: float,
     ) -> str:
 
-        bank_id = experiment_id.strip() if experiment_id else "test"
-
-        output_dir = Path(image_paths[0]).parent if image_paths else Path(self.default_output_dir) / bank_id
-        bank_path = output_dir / "reference_bank.json"
-
+        bank_path = results_mgr.reference_bank_path
         total_time = end_time - start_time
         num_generated = len(image_paths)
         avg_time = total_time / num_generated if num_generated > 0 else 0.0
@@ -103,14 +87,14 @@ class ImageGenerationNode(Node):
                 "index": idx,
                 "filename": filename,
                 "path": path,
-                "seed": seed,              # seed base del experimento
+                "seed": seed, # seed base del experimento
                 "batch_index": idx // batch_size
             })
 
         gpu_metadata = self._get_gpu_metadata()
 
         payload = {
-            "reference_bank_id": bank_id,
+            "reference_bank_id": results_mgr.experiment_id,
             "prompt": prompt,
 
             "num_images_requested": num_images_requested,
@@ -140,10 +124,12 @@ class ImageGenerationNode(Node):
             "torch_dtype": str(self.generator.pipe.unet.dtype), #type: ignore
 
             # --- outputs ---
-            "output_dir": str(output_dir),
+            "output_dir": str(results_mgr.reference_images_dir),
 
             "images": images_metadata
         }
+
+        bank_path.parent.mkdir(parents=True, exist_ok=True)
 
         with open(bank_path, "w", encoding="utf-8") as f:
             json.dump(payload, f, indent=2, ensure_ascii=False)
@@ -180,11 +166,15 @@ class ImageGenerationNode(Node):
             seed = request.seed if request.seed > 0 else random.randint(0, 1000)
             batch_size = 5
 
-            output_dir = self._build_output_dir(request.experiment_id)
+            experiment_id = request.experiment_id or "test"
+            results_mgr = VHMResultsManager(experiment_id=experiment_id)
+
+            paths = results_mgr.prepare_reference_dirs()
+            output_dir = paths["reference_images_dir"]
 
             self.get_logger().info(f"Prompt: {request.prompt}")
             self.get_logger().info(f"Generating {num_images} reference images...")
-
+            
             start_time = time.time()
 
             if torch.cuda.is_available():
@@ -194,7 +184,7 @@ class ImageGenerationNode(Node):
                 prompt=request.prompt,
                 num_images=num_images,
                 seed=seed,
-                output_dir=output_dir,
+                output_dir=str(output_dir),
                 save_images=request.save_reference_bank,
                 batch_size=batch_size
             )
@@ -205,7 +195,7 @@ class ImageGenerationNode(Node):
 
             if request.save_reference_bank:
                 self._save_reference_bank(
-                    experiment_id=request.experiment_id,
+                    results_mgr=results_mgr,
                     prompt=request.prompt,
                     seed=seed,
                     num_images_requested=num_images,
@@ -218,7 +208,7 @@ class ImageGenerationNode(Node):
             response.success = True
             response.message = "References generated successfully."
             response.generated_reference_count = len(image_paths)
-            response.output_dir = output_dir
+            response.output_dir = str(output_dir)
 
             return response
 

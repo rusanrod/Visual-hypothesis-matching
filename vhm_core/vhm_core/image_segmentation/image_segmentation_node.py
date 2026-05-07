@@ -1,6 +1,6 @@
+import time
 from pathlib import Path
 import json
-import time
 
 import cv2
 import rclpy
@@ -13,6 +13,7 @@ from vhm_interfaces.srv import SegmentImage #type: ignore
 from vhm_core.image_segmentation.fast_sam_segmenter import FastSAMSegmenter
 from vhm_core.image_segmentation.mask_utils import save_mask, save_crop
 
+from vhm_core.utlis.result_utils import VHMResultsManager
 
 class FastSAMNode(Node):
     def __init__(self):
@@ -33,8 +34,6 @@ class FastSAMNode(Node):
 
         for name, default in params:
             self.declare_parameter(name, default)
-
-        self.default_output_dir = Path.joinpath(Path.home(), "vhm_ws", "src", "vhm_results", "image_segmentations")
 
         self.image_sub = self.create_subscription(
             Image,
@@ -60,28 +59,18 @@ class FastSAMNode(Node):
 
         self.get_logger().info("FAST SAM segmentation node ready.")
 
-    def _build_output_dir(self, experiment_id: str) -> Path:
-        experiment_id = experiment_id.strip() if experiment_id else "test"
-
-        timestamp = time.strftime("%Y%m%d_%H%M%S")
-        output_dir = Path(self.default_output_dir) / experiment_id / timestamp
-        output_dir.mkdir(parents=True, exist_ok=True)
-
-        return output_dir
-
-
     # === Image loader ===
-    def _load_request_images(self, input_dir: str) -> list[dict]:
+    def _load_request_images(self, input_dir: str, results_mgr: VHMResultsManager) -> list[dict]:
         input_dir = input_dir.strip()
         offline_mode = (len(input_dir) > 0)
 
         if offline_mode:
-            return self._load_images_from_dir(input_dir)
+            return self._load_images_from_dir(input_dir, results_mgr)
 
         self.get_logger().info("No input_dir provided, using latest topic image.")
         return self._load_latest_topic_image()
     
-    def _load_images_from_dir(self, input_dir: str) -> list[dict]:
+    def _load_images_from_dir(self, input_dir: str, results_mgr: VHMResultsManager) -> list[dict]:
         input_path = Path(input_dir)
 
         if not input_path.exists():
@@ -89,14 +78,8 @@ class FastSAMNode(Node):
 
         if not input_path.is_dir():
             raise RuntimeError(f"input_dir is not a directory: {input_path}")
-
-        # We look for common image file extensions
-        exts = {".jpg", ".jpeg", ".png"}
-
-        image_paths = [
-            p for p in Path(input_dir).iterdir()
-            if p.suffix.lower() in exts
-        ]
+        
+        image_paths = results_mgr.collect_image_paths(input_dir)
 
         if not image_paths:
             raise RuntimeError(f"No images found in input_dir: {input_path}")
@@ -145,27 +128,23 @@ class FastSAMNode(Node):
             all_crops_msg = []
             segmentation_records = []
             
-            images = self._load_request_images(request.input_dir)
+            experiment_id = request.experiment_id or "test"
+            results_mgr = VHMResultsManager(experiment_id=experiment_id)
+            
+            images = self._load_request_images(request.input_dir, results_mgr)
 
             if not images:
                 raise RuntimeError("No images to process.")
             
-
-            output_dir = self._build_output_dir(request.experiment_id)
-
-            masks_dir = output_dir / "masks"
-            crops_dir = output_dir / "crops"
-
+            paths = {}
             if request.save_logs:
-                masks_dir.mkdir(parents=True, exist_ok=True)
-                crops_dir.mkdir(parents=True, exist_ok=True)
-            
+                paths = results_mgr.prepare_segmentation_dirs()
+
             for image_idx, item in enumerate(images):
                 image = item["image"]
                 image_name = item["name"]
                 
                 detections = self.segmenter.segment_image(image)
-
                 image_record = {"segments": []}
 
                 for det in detections:
@@ -183,10 +162,11 @@ class FastSAMNode(Node):
                     all_crops_msg.append(crop_msg)
 
                     if request.save_logs:
-                        mask_path = masks_dir / f"{Path(image_name).stem}_mask_{seg_idx:03d}.png"
-                        mask_path = save_mask(mask, mask_path)
-                        crop_path = crops_dir / f"{Path(image_name).stem}_crop_{seg_idx:03d}.png"
-                        crop_path = save_crop(image, mask, bbox, crop_path)
+                        mask_filepath = paths["masks_dir"] / f"{Path(image_name).stem}_mask_{seg_idx:03d}.png"
+                        mask_path = save_mask(mask, mask_filepath)
+
+                        crop_filepath = paths["crops_dir"] / f"{Path(image_name).stem}_crop_{seg_idx:03d}.png"
+                        crop_path = save_crop(image, mask, bbox, crop_filepath)
 
                     image_record["segments"].append({
                         "segment_index": seg_idx,
@@ -195,15 +175,15 @@ class FastSAMNode(Node):
                         "area": det["area"],
                         "area_ratio": det["area_ratio"],
                         #"score": det["score"],
-                        "mask_path": mask_path,
-                        "crop_path": crop_path,
+                        "mask_path": str(mask_path) if mask_path else "",
+                        "crop_path": str(crop_path) if crop_path else "",
                     })
 
                 segmentation_records.append(image_record)
 
             if request.save_logs:
                 self._save_segmentation_info(
-                    output_dir=output_dir,
+                    results_mgr=results_mgr,
                     segments=segmentation_records,
                     start_time=start_time,
                     end_time=time.time(),
@@ -236,13 +216,13 @@ class FastSAMNode(Node):
 
     def _save_segmentation_info(
         self,
-        output_dir: Path,
+        results_mgr: VHMResultsManager,
         segments: list[dict],
         start_time: float,
         end_time: float,
     ) -> str:
         
-        output_path = output_dir / "segmentation_info.json"
+        output_path = results_mgr.segmentation_info_path
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
         total_time = end_time - start_time
@@ -250,12 +230,9 @@ class FastSAMNode(Node):
         total_segments = sum(len(item.get("segments", [])) for item in segments)
 
         payload = {
-            "output_dir": str(output_dir),
-
+            "output_dir": str(results_mgr.segmentation_dir),
             "processed_image_count": processed_count,
-
             "total_segment_count": total_segments,
-
             "segmentation_started_at": time.strftime(
                 "%Y-%m-%d %H:%M:%S",
                 time.localtime(start_time),
@@ -279,8 +256,8 @@ class FastSAMNode(Node):
             },
 
             "outputs": {
-                "masks_dir": str(output_dir / "masks"),
-                "crops_dir": str(output_dir / "crops"),
+                "masks_dir": str(results_mgr.masks_dir),
+                "crops_dir": str(results_mgr.crops_dir),
             },
 
             "images": segments,
