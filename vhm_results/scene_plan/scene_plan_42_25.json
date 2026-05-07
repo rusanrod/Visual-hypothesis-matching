@@ -1,6 +1,6 @@
 {
     "dataset_plan": {
-        "created_at": "2026-05-01T13:44:41.208109",
+        "created_at": "2026-05-05T13:55:48.903221",
         "seed": 42,
         "classes": [
             "bowl",
@@ -138,8 +138,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -147,8 +147,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -156,8 +156,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -165,8 +165,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -174,8 +174,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -183,8 +183,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -192,8 +192,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -201,8 +201,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -227,8 +227,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -236,8 +236,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -245,8 +245,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -254,8 +254,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -263,8 +263,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -272,8 +272,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -281,8 +281,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -290,8 +290,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -314,8 +314,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -323,8 +323,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -332,8 +332,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -341,8 +341,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -350,8 +350,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -359,8 +359,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -383,8 +383,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -392,8 +392,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -401,8 +401,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -410,8 +410,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -419,8 +419,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -428,8 +428,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -453,8 +453,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -462,8 +462,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -471,8 +471,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -480,8 +480,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -489,8 +489,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -498,8 +498,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -507,8 +507,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -532,8 +532,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -541,8 +541,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -550,8 +550,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -559,8 +559,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -568,8 +568,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -577,8 +577,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -586,8 +586,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -610,8 +610,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -619,8 +619,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -628,8 +628,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -637,8 +637,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -646,8 +646,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -655,8 +655,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -680,8 +680,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -689,8 +689,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -698,8 +698,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -707,8 +707,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -716,8 +716,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -725,8 +725,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -734,8 +734,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -759,8 +759,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -768,8 +768,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -777,8 +777,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -786,8 +786,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -795,8 +795,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -804,8 +804,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -813,8 +813,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -837,8 +837,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -846,8 +846,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -855,8 +855,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -864,8 +864,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -873,8 +873,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -882,8 +882,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -906,8 +906,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -915,8 +915,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -924,8 +924,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -933,8 +933,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -942,8 +942,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -951,8 +951,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -976,8 +976,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -985,8 +985,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -994,8 +994,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1003,8 +1003,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1012,8 +1012,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1021,8 +1021,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1030,8 +1030,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1056,8 +1056,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1065,8 +1065,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1074,8 +1074,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1083,8 +1083,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1092,8 +1092,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1101,8 +1101,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1110,8 +1110,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1119,8 +1119,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1143,8 +1143,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1152,8 +1152,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1161,8 +1161,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1170,8 +1170,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1179,8 +1179,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1188,8 +1188,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1214,8 +1214,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1223,8 +1223,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1232,8 +1232,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1241,8 +1241,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1250,8 +1250,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1259,8 +1259,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1268,8 +1268,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1277,8 +1277,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1303,8 +1303,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1312,8 +1312,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1321,8 +1321,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1330,8 +1330,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1339,8 +1339,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1348,8 +1348,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1357,8 +1357,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1366,8 +1366,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1390,8 +1390,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1399,8 +1399,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1408,8 +1408,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1417,8 +1417,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1426,8 +1426,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1435,8 +1435,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1461,8 +1461,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1470,8 +1470,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1479,8 +1479,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1488,8 +1488,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1497,8 +1497,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1506,8 +1506,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1515,8 +1515,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1524,8 +1524,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1549,8 +1549,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1558,8 +1558,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1567,8 +1567,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1576,8 +1576,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1585,8 +1585,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1594,8 +1594,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1603,8 +1603,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1629,8 +1629,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1638,8 +1638,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1647,8 +1647,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1656,8 +1656,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1665,8 +1665,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1674,8 +1674,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1683,8 +1683,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1692,8 +1692,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1718,8 +1718,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1727,8 +1727,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1736,8 +1736,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1745,8 +1745,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1754,8 +1754,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1763,8 +1763,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1772,8 +1772,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1781,8 +1781,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1805,8 +1805,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1814,8 +1814,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1823,8 +1823,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1832,8 +1832,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1841,8 +1841,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1850,8 +1850,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1874,8 +1874,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1883,8 +1883,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1892,8 +1892,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1901,8 +1901,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1910,8 +1910,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1919,8 +1919,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -1943,8 +1943,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1952,8 +1952,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1961,8 +1961,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1970,8 +1970,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1979,8 +1979,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -1988,8 +1988,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2014,8 +2014,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2023,8 +2023,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2032,8 +2032,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2041,8 +2041,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2050,8 +2050,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2059,8 +2059,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2068,8 +2068,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2077,8 +2077,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2102,8 +2102,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2111,8 +2111,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2120,8 +2120,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2129,8 +2129,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2138,8 +2138,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2147,8 +2147,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2156,8 +2156,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2180,8 +2180,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2189,8 +2189,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2198,8 +2198,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2207,8 +2207,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2216,8 +2216,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2225,8 +2225,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2249,8 +2249,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2258,8 +2258,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2267,8 +2267,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2276,8 +2276,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2285,8 +2285,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2294,8 +2294,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2318,8 +2318,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2327,8 +2327,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2336,8 +2336,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2345,8 +2345,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2354,8 +2354,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2363,8 +2363,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2388,8 +2388,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2397,8 +2397,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2406,8 +2406,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2415,8 +2415,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2424,8 +2424,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2433,8 +2433,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2442,8 +2442,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2467,8 +2467,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2476,8 +2476,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2485,8 +2485,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2494,8 +2494,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2503,8 +2503,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2512,8 +2512,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2521,8 +2521,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2546,8 +2546,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2555,8 +2555,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2564,8 +2564,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2573,8 +2573,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2582,8 +2582,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2591,8 +2591,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2600,8 +2600,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2625,8 +2625,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2634,8 +2634,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2643,8 +2643,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2652,8 +2652,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2661,8 +2661,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2670,8 +2670,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2679,8 +2679,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2705,8 +2705,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2714,8 +2714,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2723,8 +2723,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2732,8 +2732,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2741,8 +2741,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2750,8 +2750,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2759,8 +2759,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2768,8 +2768,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2794,8 +2794,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2803,8 +2803,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2812,8 +2812,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2821,8 +2821,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2830,8 +2830,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2839,8 +2839,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2848,8 +2848,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2857,8 +2857,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2883,8 +2883,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2892,8 +2892,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2901,8 +2901,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2910,8 +2910,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2919,8 +2919,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2928,8 +2928,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2937,8 +2937,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2946,8 +2946,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -2972,8 +2972,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2981,8 +2981,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2990,8 +2990,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -2999,8 +2999,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3008,8 +3008,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3017,8 +3017,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3026,8 +3026,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3035,8 +3035,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3060,8 +3060,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3069,8 +3069,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3078,8 +3078,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3087,8 +3087,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3096,8 +3096,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3105,8 +3105,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3114,8 +3114,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3138,8 +3138,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3147,8 +3147,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3156,8 +3156,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3165,8 +3165,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3174,8 +3174,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3183,8 +3183,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3208,8 +3208,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3217,8 +3217,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3226,8 +3226,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3235,8 +3235,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3244,8 +3244,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3253,8 +3253,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3262,8 +3262,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3286,8 +3286,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3295,8 +3295,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3304,8 +3304,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3313,8 +3313,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3322,8 +3322,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3331,8 +3331,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3355,8 +3355,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3364,8 +3364,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3373,8 +3373,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3382,8 +3382,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3391,8 +3391,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3400,8 +3400,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3425,8 +3425,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3434,8 +3434,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3443,8 +3443,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3452,8 +3452,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3461,8 +3461,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3470,8 +3470,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3479,8 +3479,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3504,8 +3504,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3513,8 +3513,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3522,8 +3522,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3531,8 +3531,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3540,8 +3540,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3549,8 +3549,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3558,8 +3558,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3583,8 +3583,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3592,8 +3592,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3601,8 +3601,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3610,8 +3610,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3619,8 +3619,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3628,8 +3628,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3637,8 +3637,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3663,8 +3663,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3672,8 +3672,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3681,8 +3681,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3690,8 +3690,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3699,8 +3699,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3708,8 +3708,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3717,8 +3717,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3726,8 +3726,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3751,8 +3751,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3760,8 +3760,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3769,8 +3769,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3778,8 +3778,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3787,8 +3787,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3796,8 +3796,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3805,8 +3805,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3830,8 +3830,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3839,8 +3839,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3848,8 +3848,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3857,8 +3857,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3866,8 +3866,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3875,8 +3875,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3884,8 +3884,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3910,8 +3910,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3919,8 +3919,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3928,8 +3928,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3937,8 +3937,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3946,8 +3946,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3955,8 +3955,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3964,8 +3964,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -3973,8 +3973,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -3999,8 +3999,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4008,8 +4008,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4017,8 +4017,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4026,8 +4026,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4035,8 +4035,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4044,8 +4044,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4053,8 +4053,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4062,8 +4062,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4086,8 +4086,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4095,8 +4095,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4104,8 +4104,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4113,8 +4113,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4122,8 +4122,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4131,8 +4131,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4157,8 +4157,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4166,8 +4166,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4175,8 +4175,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4184,8 +4184,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4193,8 +4193,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4202,8 +4202,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4211,8 +4211,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4220,8 +4220,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4246,8 +4246,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4255,8 +4255,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4264,8 +4264,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4273,8 +4273,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4282,8 +4282,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4291,8 +4291,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4300,8 +4300,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4309,8 +4309,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4334,8 +4334,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4343,8 +4343,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4352,8 +4352,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4361,8 +4361,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4370,8 +4370,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4379,8 +4379,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4388,8 +4388,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4413,8 +4413,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4422,8 +4422,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4431,8 +4431,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4440,8 +4440,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4449,8 +4449,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4458,8 +4458,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4467,8 +4467,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4492,8 +4492,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4501,8 +4501,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4510,8 +4510,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4519,8 +4519,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4528,8 +4528,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4537,8 +4537,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4546,8 +4546,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4570,8 +4570,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4579,8 +4579,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4588,8 +4588,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4597,8 +4597,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4606,8 +4606,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4615,8 +4615,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4639,8 +4639,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4648,8 +4648,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4657,8 +4657,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4666,8 +4666,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4675,8 +4675,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4684,8 +4684,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4710,8 +4710,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4719,8 +4719,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4728,8 +4728,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4737,8 +4737,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4746,8 +4746,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4755,8 +4755,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4764,8 +4764,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4773,8 +4773,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4799,8 +4799,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4808,8 +4808,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4817,8 +4817,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4826,8 +4826,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4835,8 +4835,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4844,8 +4844,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4853,8 +4853,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4862,8 +4862,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4886,8 +4886,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4895,8 +4895,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4904,8 +4904,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4913,8 +4913,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4922,8 +4922,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4931,8 +4931,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -4955,8 +4955,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4964,8 +4964,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4973,8 +4973,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4982,8 +4982,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -4991,8 +4991,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5000,8 +5000,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5025,8 +5025,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5034,8 +5034,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5043,8 +5043,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5052,8 +5052,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5061,8 +5061,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5070,8 +5070,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5079,8 +5079,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5105,8 +5105,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5114,8 +5114,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5123,8 +5123,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5132,8 +5132,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5141,8 +5141,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5150,8 +5150,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5159,8 +5159,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5168,8 +5168,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5192,8 +5192,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5201,8 +5201,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5210,8 +5210,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5219,8 +5219,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5228,8 +5228,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5237,8 +5237,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5262,8 +5262,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5271,8 +5271,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5280,8 +5280,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5289,8 +5289,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5298,8 +5298,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5307,8 +5307,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5316,8 +5316,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5342,8 +5342,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5351,8 +5351,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5360,8 +5360,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5369,8 +5369,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5378,8 +5378,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5387,8 +5387,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5396,8 +5396,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5405,8 +5405,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5431,8 +5431,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5440,8 +5440,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5449,8 +5449,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5458,8 +5458,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5467,8 +5467,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5476,8 +5476,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5485,8 +5485,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5494,8 +5494,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5518,8 +5518,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5527,8 +5527,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5536,8 +5536,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5545,8 +5545,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5554,8 +5554,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5563,8 +5563,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5588,8 +5588,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5597,8 +5597,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_04",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5606,8 +5606,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5615,8 +5615,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5624,8 +5624,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_02",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5633,8 +5633,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5642,8 +5642,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5666,8 +5666,8 @@
                     "class_name": "cutlery",
                     "instance_id": "cutlery_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5675,8 +5675,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5684,8 +5684,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5693,8 +5693,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5702,8 +5702,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5711,8 +5711,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]
@@ -5733,8 +5733,8 @@
                     "class_name": "tennis_shoes",
                     "instance_id": "tennis_shoes_05",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5742,8 +5742,8 @@
                     "class_name": "cup",
                     "instance_id": "cup_03",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5751,8 +5751,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 },
                 {
@@ -5760,8 +5760,8 @@
                     "class_name": "bowl",
                     "instance_id": "bowl_01",
                     "ground_truth": {
-                        "bbox_xyxy": null,
-                        "mask_file": null
+                        "crop_index": null,
+                        "annotated": false
                     }
                 }
             ]

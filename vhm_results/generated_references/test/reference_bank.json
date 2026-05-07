@@ -1,0 +1,68 @@
+{
+  "reference_bank_id": "test",
+  "prompt": "blue pair of shoes",
+  "num_images_requested": 5,
+  "num_images_generated": 5,
+  "seed": 42,
+  "batch_size": 5,
+  "model_id": "runwayml/stable-diffusion-v1-5",
+  "scheduler": "DPMSolverMultistepScheduler",
+  "width": 384,
+  "height": 384,
+  "steps": 25,
+  "guidance_scale": 7.5,
+  "negative_prompt": "blurry, low quality, distorted, deformed",
+  "generation_started_at": "2026-05-06 17:52:16",
+  "generation_finished_at": "2026-05-06 17:52:26",
+  "total_generation_time_sec": 9.3229,
+  "avg_time_per_image_sec": 1.8646,
+  "gpu": {
+    "cuda_available": true,
+    "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "gpu_index": 0,
+    "vram_allocated_mb": 2064.91,
+    "vram_reserved_mb": 2108.0,
+    "vram_max_allocated_mb": 3508.19,
+    "vram_total_mb": 7805.56
+  },
+  "device": "cuda",
+  "torch_dtype": "torch.float16",
+  "output_dir": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/test/images",
+  "images": [
+    {
+      "index": 0,
+      "filename": "synthetic_000_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/test/images/synthetic_000_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    },
+    {
+      "index": 1,
+      "filename": "synthetic_001_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/test/images/synthetic_001_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    },
+    {
+      "index": 2,
+      "filename": "synthetic_002_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/test/images/synthetic_002_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    },
+    {
+      "index": 3,
+      "filename": "synthetic_003_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/test/images/synthetic_003_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    },
+    {
+      "index": 4,
+      "filename": "synthetic_004_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/test/images/synthetic_004_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    }
+  ]
+}
