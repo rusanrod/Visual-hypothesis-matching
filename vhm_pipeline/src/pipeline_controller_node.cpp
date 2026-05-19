@@ -30,8 +30,7 @@ struct PipelineContext
 {
   std::string raw_command;
 
-  std::string positive_prompt;
-  std::string negative_prompt;
+  std::string prompt;
   std::string class_name;
 
   bool use_image_enhancement{false};
@@ -255,8 +254,7 @@ private:
     // 2. Build positive_prompt y negative_prompt
 
     // Parseo provisional
-    context_.positive_prompt = context_.raw_command;
-    context_.negative_prompt = "blurry, low quality, distorted, occluded";
+    context_.prompt = context_.raw_command;
 
     current_state_ = PipelineState::PREPARE_REFERENCES;
   }
