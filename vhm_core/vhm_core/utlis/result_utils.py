@@ -153,6 +153,10 @@ class VHMResultsManager:
             "similarity_matrix_path": self.similarity_matrix_path,
             "comparison_summary_path": self.comparison_summary_path,
         }
+    
+    def prepare_scene_images_dir(self) -> Path:
+        self.scene_images_root.mkdir(parents=True, exist_ok=True)
+        return self.scene_images_root
 
     # ============================================================
     # Métodos de validación de existencia (Require)
@@ -172,3 +176,25 @@ class VHMResultsManager:
         if not self.crops_dir.is_dir():
             raise FileNotFoundError(f"Missing crops directory: {self.crops_dir}")
         return self.crops_dir
+    
+    # ============================================================
+    # Métodos específicos para manejo de escenas (no dependen de experiment_id)
+    # ============================================================
+
+    def make_scene_image_path(self, extension: str = ".png") -> Path:
+        extension = extension if extension.startswith(".") else f".{extension}"
+
+        self.scene_images_root.mkdir(parents=True, exist_ok=True)
+
+        existing_images = sorted([
+            p for p in self.scene_images_root.iterdir()
+            if p.is_file() and p.suffix.lower() in {
+                ".png", ".jpg", ".jpeg", ".bmp", ".webp"
+            }
+        ])
+
+        next_idx = len(existing_images)
+
+        filename = f"scene_{next_idx:03d}{extension}"
+
+        return self.scene_images_root / filename

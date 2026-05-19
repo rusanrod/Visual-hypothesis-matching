@@ -26,7 +26,6 @@ class StableDiffusionGenerator:
         height: int = 512,
         steps: int = 25,
         guidance_scale: float = 7.5,
-        negative_prompt: str = "",
     ):
         self.model_id = model_id
         self.device = device
@@ -34,7 +33,6 @@ class StableDiffusionGenerator:
         self.height = height
         self.steps = steps
         self.guidance_scale = guidance_scale
-        self.negative_prompt = negative_prompt
 
         torch_dtype = torch.float16 if dtype == "float16" else torch.float32
 
@@ -74,6 +72,7 @@ class StableDiffusionGenerator:
         seed: int,
         output_dir: str,
         batch_size: int = 5,
+        negative_prompt: str = "",
         save_images: bool = True,
     ) -> List[GeneratedImage]:
         
@@ -93,7 +92,7 @@ class StableDiffusionGenerator:
             with torch.inference_mode():
                 images = self.pipe(
                     prompt=prompt,
-                    negative_prompt=self.negative_prompt,
+                    negative_prompt=negative_prompt,
                     width=self.width,
                     height=self.height,
                     num_inference_steps=self.steps,

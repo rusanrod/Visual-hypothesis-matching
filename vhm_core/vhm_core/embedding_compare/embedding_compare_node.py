@@ -206,10 +206,18 @@ class EmbeddingCompareNode(Node):
             self.reference_embeddings = self.reference_embeddings.detach().cpu()
             similarity = crop_embeddings @ self.reference_embeddings.T
             
-            crop_best_scores, crop_best_ref_indices = similarity.max(dim=1)
-            best_crop_index = int(crop_best_scores.argmax().item())
-            best_reference_index = int(crop_best_ref_indices[best_crop_index].item())
-            best_score = float(crop_best_scores[best_crop_index].item())
+            top_k = getattr(request, "top_k", 3)
+            threshold = getattr(request, "threshold", 0.25)
+
+            voting_result = self._compute_reference_fusion(
+                similarity=similarity,
+                top_k=top_k,
+                threshold=threshold,
+            )
+
+            best_crop_index = voting_result["best_crop_index"]
+            best_score = voting_result["best_score"]
+            accepted = voting_result["accepted"]
             
             save_experiment = getattr(request, "save_experiment", False)
             if save_experiment:
@@ -222,18 +230,36 @@ class EmbeddingCompareNode(Node):
                     "crop_count": int(similarity.shape[0]),
                     "reference_count": int(similarity.shape[1]),
                     "embedding_dim": self.embedding_dim,
-                    "best_crop_index": best_crop_index,
-                    "best_crop_name": crop_names[best_crop_index] if crop_names else None,
-                    "best_reference_index": best_reference_index, #maybe this is not used
-                    "best_score": best_score,
-                    "best_reference_indices": [
-                        int(x) for x in crop_best_ref_indices.tolist()
-                    ],
-                    "best_reference_scores": [
-                        float(x) for x in crop_best_scores.tolist()
-                    ],
-                    "crop_names": crop_names,
-                    "crop_paths": [str(p) for p in crop_paths],
+
+
+                    "vote_parameters": {
+                        "alpha": voting_result["alpha"],
+                        "beta": voting_result["beta"],
+                        "gamma": voting_result["gamma"],
+                        "rrf_k": voting_result["rrf_k"],
+                        "top_k": voting_result["top_k"],
+                        "top_m": voting_result["top_m"],
+
+                        "threshold": float(threshold),
+                    },
+                    "results_summary": {
+                        "best_crop_index": best_crop_index,
+                        "best_score": best_score,
+                        "best_crop_name": crop_names[best_crop_index] if crop_names else None,
+                        "best_raw_score": voting_result["best_raw_score"],
+                        "best_mean_top_m_score": voting_result["best_mean_top_m_score"],
+                        "best_rrf_score": voting_result["best_rrf_score"],
+                        "best_vote_count": voting_result["best_vote_count"],
+
+                        "accepted": accepted,
+                    },
+
+                    "crop_vote_counts": voting_result["crop_vote_counts"],
+                    #"crop_vote_scores": voting_result["crop_vote_scores"],
+                    "reference_votes": voting_result["reference_votes"],
+
+                    #"crop_names": crop_names,
+                    #"crop_paths": [str(p) for p in crop_paths],
                     "reference_metadata": self.reference_metadata,
                     "created_at": time.strftime("%Y-%m-%d %H:%M:%S"),
                 }
@@ -264,20 +290,11 @@ class EmbeddingCompareNode(Node):
             else:
                 response.similarity_matrix = []
 
-            if request.return_best_matches:
-                response.best_reference_indices = [
-                    int(x) for x in crop_best_ref_indices.tolist()
-                ]
-                response.best_reference_scores = [
-                    float(x) for x in crop_best_scores.tolist()
-                ]
-            else:
-                response.best_reference_indices = []
-                response.best_reference_scores = []
-
             response.best_crop_index = best_crop_index
-            response.best_reference_index = best_reference_index
             response.best_score = best_score
+            response.accepted = bool(accepted)
+            response.crop_vote_counts = voting_result["crop_vote_counts"]
+            #response.crop_vote_scores = voting_result["crop_vote_scores"]
 
             return response
 
@@ -290,23 +307,28 @@ class EmbeddingCompareNode(Node):
             response.crop_count = 0
             response.reference_count = 0
             response.similarity_matrix = []
-            response.best_reference_indices = []
-            response.best_reference_scores = []
 
             response.best_crop_index = -1
-            response.best_reference_index = -1
             response.best_score = 0.0
+            response.accepted = False
+            response.crop_vote_counts = []
+            #response.crop_vote_scores = []
 
             return response
 
         finally:
             self.embedder.cleanup_gpu_memory()
 
+    # === Data load Methods ===
     def _load_references_from_pth(self, pth_path: Path) -> dict:
         if not pth_path.exists():
             raise RuntimeError(f"pth_path does not exist: {pth_path}")
 
-        payload = torch.load(str(pth_path), map_location="cpu")
+        payload = torch.load(
+            str(pth_path), 
+            map_location="cpu", 
+            weights_only=True
+        )
 
         if "embeddings" not in payload:
             raise RuntimeError(f"Invalid cache file. Missing 'embeddings': {pth_path}")
@@ -412,6 +434,157 @@ class EmbeddingCompareNode(Node):
 
         return str(pth_path)
         
+    def _compute_reference_fusion(
+        self,
+        similarity: torch.Tensor,
+        top_k: int = 3,
+        top_m: int = 3,
+        threshold: float = 0.75,
+        alpha: float = 0.60,
+        beta: float = 0.30,
+        gamma: float = 0.10,
+        rrf_k: float = 60.0,
+    ) -> dict:
+        """
+        similarity: [num_crops, num_references]
+
+        Cada crop obtiene:
+        - max_raw_score: mejor similitud directa contra cualquier referencia
+        - mean_top_m_raw_score: promedio de sus mejores m similitudes
+        - rrf_score: score por rankings de cada referencia
+        - final_score: combinación ponderada
+        """
+
+        if similarity.ndim != 2:
+            raise RuntimeError(
+                f"Similarity matrix must be 2D. Got shape: {similarity.shape}"
+            )
+
+        num_crops, num_references = similarity.shape
+
+        if num_crops == 0 or num_references == 0:
+            raise RuntimeError("Empty similarity matrix.")
+
+        top_k = max(1, min(top_k, num_crops))
+        top_m = max(1, min(top_m, num_references))
+
+        # 1) Score fuerte: mejor referencia por crop
+        crop_max_raw_scores, crop_best_reference_indices = similarity.max(dim=1)
+
+        # 2) Score estable: promedio de las mejores M referencias por crop
+        crop_top_m_scores, _ = torch.topk(
+            similarity,
+            k=top_m,
+            dim=1,
+            largest=True,
+        )
+        crop_mean_top_m_scores = crop_top_m_scores.mean(dim=1)
+
+        # 3) Ranking fusion: cada referencia produce ranking de crops
+        rrf_scores = torch.zeros(
+            num_crops,
+            dtype=torch.float32,
+            device=similarity.device,
+        )
+
+        crop_vote_counts = torch.zeros(
+            num_crops,
+            dtype=torch.int32,
+            device=similarity.device,
+        )
+
+        reference_votes = []
+
+        for ref_idx in range(num_references):
+            ref_scores = similarity[:, ref_idx]
+
+            ranked_crop_indices = torch.argsort(
+                ref_scores,
+                descending=True,
+            )
+
+            vote_items = []
+
+            for rank, crop_idx_tensor in enumerate(ranked_crop_indices[:top_k]):
+                crop_idx = int(crop_idx_tensor.item())
+                raw_score = float(ref_scores[crop_idx].item())
+
+                # rank empieza en 0; usamos rank + 1 para fórmula RRF
+                rrf_increment = 1.0 / (rrf_k + rank + 1)
+
+                rrf_scores[crop_idx] += rrf_increment
+                crop_vote_counts[crop_idx] += 1
+
+                vote_items.append({
+                    "rank": int(rank),
+                    "crop_index": crop_idx,
+                    "raw_score": raw_score,
+                    "rrf_increment": float(rrf_increment),
+                })
+
+            reference_votes.append({
+                "reference_index": int(ref_idx),
+                "votes": vote_items,
+            })
+
+        # Normalizamos RRF para que quede aprox en [0, 1]
+        max_possible_rrf = num_references * (1.0 / (rrf_k + 1.0))
+        if max_possible_rrf > 0:
+            rrf_scores_norm = rrf_scores / max_possible_rrf
+        else:
+            rrf_scores_norm = rrf_scores
+
+        # 4) Fusión final
+        final_scores = (
+            alpha * crop_max_raw_scores
+            + beta * crop_mean_top_m_scores
+            + gamma * rrf_scores_norm
+        )
+
+        best_crop_index = int(torch.argmax(final_scores).item())
+        best_reference_index = int(crop_best_reference_indices[best_crop_index].item())
+
+        best_final_score = float(final_scores[best_crop_index].item())
+        best_raw_score = float(crop_max_raw_scores[best_crop_index].item())
+        best_mean_top_m_score = float(crop_mean_top_m_scores[best_crop_index].item())
+        best_rrf_score = float(rrf_scores_norm[best_crop_index].item())
+        best_vote_count = int(crop_vote_counts[best_crop_index].item())
+
+        accepted = best_final_score >= threshold
+
+        return {
+            "best_crop_index": best_crop_index,
+            "best_reference_index": best_reference_index,
+            "best_score": best_final_score,
+            "best_raw_score": best_raw_score,
+            "best_mean_top_m_score": best_mean_top_m_score,
+            "best_rrf_score": best_rrf_score,
+            "best_vote_count": best_vote_count,
+            "accepted": bool(accepted),
+            "threshold": float(threshold),
+            "top_k": int(top_k),
+            "top_m": int(top_m),
+            "alpha": float(alpha),
+            "beta": float(beta),
+            "gamma": float(gamma),
+            "rrf_k": float(rrf_k),
+            "crop_final_scores": [
+                float(x) for x in final_scores.detach().cpu().tolist()
+            ],
+            "crop_max_raw_scores": [
+                float(x) for x in crop_max_raw_scores.detach().cpu().tolist()
+            ],
+            "crop_mean_top_m_scores": [
+                float(x) for x in crop_mean_top_m_scores.detach().cpu().tolist()
+            ],
+            "crop_rrf_scores": [
+                float(x) for x in rrf_scores_norm.detach().cpu().tolist()
+            ],
+            "crop_vote_counts": [
+                int(x) for x in crop_vote_counts.detach().cpu().tolist()
+            ],
+            "reference_votes": reference_votes,
+        }
 
 
 def main(args=None):

@@ -24,7 +24,8 @@ class CLIPEmbedder:
             torch_dtype=self.dtype,
         ).to(self.device) #type: ignore
 
-        self.processor = cast(CLIPProcessor, CLIPProcessor.from_pretrained(self.model_name))
+        self.processor = cast(CLIPProcessor, 
+                              CLIPProcessor.from_pretrained(self.model_name))
         self.model.eval()
 
 

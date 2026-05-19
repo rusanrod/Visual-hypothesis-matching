@@ -1,4 +1,3 @@
-
 import random
 from pathlib import Path
 import json
@@ -29,16 +28,14 @@ class ImageGenerationNode(Node):
                 ("height", 384),
                 ("steps", 25),
                 ("guidance_scale", 7.5),
-                ("negative_prompt", "blurry, low quality, distorted, deformed"),
-                ("base_style", "single object, centered, clean background, realistic photo"),
+                # ("negative_prompt", "blurry, low quality, distorted, deformed"),
+                # ("base_style", "single object, centered, clean background, realistic photo"),
             ]
 
         for name, default in params:
             self.declare_parameter(name, default)
 
-        self.prompt_builder = PromptBuilder(
-            base_style=self.get_parameter("base_style").get_parameter_value().string_value
-        )
+        self.prompt_builder = PromptBuilder()
 
         self.get_logger().info("Cargando Stable Diffusion...")
 
@@ -52,7 +49,6 @@ class ImageGenerationNode(Node):
             height=self.get_parameter("height").get_parameter_value().integer_value,
             steps=self.get_parameter("steps").get_parameter_value().integer_value,
             guidance_scale=self.get_parameter("guidance_scale").get_parameter_value().double_value,
-            negative_prompt=self.get_parameter("negative_prompt").get_parameter_value().string_value,
         )
 
         self.img_gen_srv = self.create_service(
@@ -67,6 +63,7 @@ class ImageGenerationNode(Node):
         self,
         results_mgr: VHMResultsManager,
         prompt: str,
+        negative_prompt: str,
         seed: int,
         num_images_requested: int,
         image_paths: list[str],
@@ -96,7 +93,7 @@ class ImageGenerationNode(Node):
         payload = {
             "reference_bank_id": results_mgr.experiment_id,
             "prompt": prompt,
-
+            "negative_prompt": negative_prompt,
             "num_images_requested": num_images_requested,
             "num_images_generated": num_generated,
 
@@ -110,7 +107,6 @@ class ImageGenerationNode(Node):
             "height": self.generator.height,
             "steps": self.generator.steps,
             "guidance_scale": self.generator.guidance_scale,
-            "negative_prompt": self.generator.negative_prompt,
 
             # --- métricas ---
             "generation_started_at": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(start_time)),
@@ -174,6 +170,8 @@ class ImageGenerationNode(Node):
 
             self.get_logger().info(f"Prompt: {request.prompt}")
             self.get_logger().info(f"Generating {num_images} reference images...")
+
+            prompt_pack = self.prompt_builder.build(request.prompt)
             
             start_time = time.time()
 
@@ -181,7 +179,8 @@ class ImageGenerationNode(Node):
                 torch.cuda.reset_peak_memory_stats()
 
             generated = self.generator.generate(
-                prompt=request.prompt,
+                prompt=prompt_pack.positive_prompt,
+                negative_prompt=prompt_pack.negative_prompt,
                 num_images=num_images,
                 seed=seed,
                 output_dir=str(output_dir),
@@ -196,7 +195,8 @@ class ImageGenerationNode(Node):
             if request.save_reference_bank:
                 self._save_reference_bank(
                     results_mgr=results_mgr,
-                    prompt=request.prompt,
+                    prompt=prompt_pack.positive_prompt,
+                    negative_prompt=prompt_pack.negative_prompt,
                     seed=seed,
                     num_images_requested=num_images,
                     image_paths=image_paths,

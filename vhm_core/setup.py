@@ -22,6 +22,7 @@ setup(
             'image_generation_node = vhm_core.image_generation.image_generation_node:main',
             "image_segmentation_node = vhm_core.image_segmentation.image_segmentation_node:main",
             "embedding_compare_node = vhm_core.embedding_compare.embedding_compare_node:main",
+            "get_scene_node = vhm_core.utlis.get_scene_node:main",
         ],
     },
 )
