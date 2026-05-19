@@ -19,7 +19,7 @@ class ScenePlanGenerator:
     def __init__(
         self,
         classes: list[str],
-        instances_per_class: int = 5,
+        instances_per_class: int = 4,
         appearances_per_instance: int = 20,
         min_objects_per_scene: int = 6,
         max_objects_per_scene: int = 8,
@@ -99,8 +99,7 @@ class ScenePlanGenerator:
                     break
 
                 if obj.instance_id in selected_instance_ids:
-                    selected.append(obj)
-                    selected_instance_ids.add(obj.instance_id)
+                    continue
 
         return selected
 
@@ -108,7 +107,7 @@ class ScenePlanGenerator:
         scenes = []
         scene_idx = 1
 
-        while self._remaining_objects():
+        while any(obj.remaining > 0 for obj in self.objects):
             remaining_total = sum(obj.remaining for obj in self.objects)
 
             scene_size = random.randint(
@@ -193,13 +192,14 @@ def main():
     classes = [
         "bowl",
         "cup",
+        "ball",
         "cutlery",
         "tennis_shoes",
     ]
 
     generator = ScenePlanGenerator(
         classes=classes,
-        instances_per_class=5,
+        instances_per_class=4,
         appearances_per_instance=25,
         min_objects_per_scene=6,
         max_objects_per_scene=8,

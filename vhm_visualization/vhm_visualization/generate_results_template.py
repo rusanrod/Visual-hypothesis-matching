@@ -59,12 +59,8 @@ class SceneResultsTemplateGenerator:
                     "ground_truth": {
                         "is_present": is_present,
                         "placement_id": gt_obj["placement_id"] if is_present else None,
-                        "bbox_xyxy": (
-                            gt_obj["ground_truth"]["bbox_xyxy"]
-                            if is_present else None
-                        ),
-                        "mask_file": (
-                            gt_obj["ground_truth"]["mask_file"]
+                        "crop_index": (
+                            gt_obj["ground_truth"]["crop_index"]
                             if is_present else None
                         ),
                     },
@@ -73,7 +69,7 @@ class SceneResultsTemplateGenerator:
                         "detected": None,
                         "predicted_class": None,
                         "predicted_instance": None,
-                        "bbox_xyxy": None,
+                        "crop_index": None,
                         "mask_file": None,
                         "crop_file": None,
                         "similarity_score": None,
