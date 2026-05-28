@@ -1,0 +1,26 @@
+{
+    "ball_01": "white baseball",
+    "ball_02": "green tennis ball",
+    "ball_03": "small yellow golf ball",
+    "ball_04": "small blue golf ball",
+
+    "bowl_01": "light yellow plastic bowl",
+    "bowl_02": "light blue plastic bowl",
+    "bowl_03": "purple plastic bowl",
+    "bowl_04": "red plastic bowl",
+
+    "cutlery_01": "metal spoon with red handle",
+    "cutlery_02": "red plastic knife",
+    "cutlery_03": "orange plastic fork",
+    "cutlery_04": "purple plastic spoon",
+
+    "cup_01": "blue mug with grey dinosaur illustration",
+    "cup_02": "red mug with green dinosaur illustration",
+    "cup_03": "green mug with green dinosaur illustration",
+    "cup_04": "purple mug with blue dinosaur illustration",
+
+    "tennis_shoe_01": "green sneaker with white stripes",
+    "tennis_shoe_02": "white athletic shoe with black sole",
+    "tennis_shoe_03": "light pink sneaker with textured pattern",
+    "tennis_shoe_04": "black sneaker with white sole"
+}

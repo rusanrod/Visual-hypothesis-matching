@@ -1,0 +1,103 @@
+{
+  "reference_bank_id": "bowl_04_10",
+  "prompt": "isolated product photo, single object, centered composition, full object visible, clean white background, studio lighting, soft shadow, sharp focus, high detail, realistic, front view, red plastic bowl, well lit, clear shape, visible color, visible texture, no occlusion, no cropping, no clutter",
+  "negative_prompt": "cropped object, partially visible object, occluded object, multiple unrelated objects, cluttered background, complex scene, hands, people, person, text, watermark, logo, label, blurry, low resolution, distorted shape, deformed object, bad perspective, dark lighting, overexposed, underexposed, reflection glare",
+  "num_images_requested": 10,
+  "num_images_generated": 10,
+  "seed": 42,
+  "batch_size": 5,
+  "model_id": "runwayml/stable-diffusion-v1-5",
+  "scheduler": "DPMSolverMultistepScheduler",
+  "width": 384,
+  "height": 384,
+  "steps": 25,
+  "guidance_scale": 7.5,
+  "generation_started_at": "2026-05-27 15:00:43",
+  "generation_finished_at": "2026-05-27 15:01:03",
+  "total_generation_time_sec": 19.8421,
+  "avg_time_per_image_sec": 1.9842,
+  "gpu": {
+    "cuda_available": true,
+    "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "gpu_index": 0,
+    "vram_allocated_mb": 2064.69,
+    "vram_reserved_mb": 2118.0,
+    "vram_max_allocated_mb": 3507.77,
+    "vram_total_mb": 7805.56
+  },
+  "device": "cuda",
+  "torch_dtype": "torch.float16",
+  "output_dir": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images",
+  "images": [
+    {
+      "index": 0,
+      "filename": "synthetic_000_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_000_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    },
+    {
+      "index": 1,
+      "filename": "synthetic_001_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_001_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    },
+    {
+      "index": 2,
+      "filename": "synthetic_002_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_002_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    },
+    {
+      "index": 3,
+      "filename": "synthetic_003_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_003_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    },
+    {
+      "index": 4,
+      "filename": "synthetic_004_seed_42.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_004_seed_42.png",
+      "seed": 42,
+      "batch_index": 0
+    },
+    {
+      "index": 5,
+      "filename": "synthetic_005_seed_43.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_005_seed_43.png",
+      "seed": 42,
+      "batch_index": 1
+    },
+    {
+      "index": 6,
+      "filename": "synthetic_006_seed_43.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_006_seed_43.png",
+      "seed": 42,
+      "batch_index": 1
+    },
+    {
+      "index": 7,
+      "filename": "synthetic_007_seed_43.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_007_seed_43.png",
+      "seed": 42,
+      "batch_index": 1
+    },
+    {
+      "index": 8,
+      "filename": "synthetic_008_seed_43.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_008_seed_43.png",
+      "seed": 42,
+      "batch_index": 1
+    },
+    {
+      "index": 9,
+      "filename": "synthetic_009_seed_43.png",
+      "path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/bowl_04_10/images/synthetic_009_seed_43.png",
+      "seed": 42,
+      "batch_index": 1
+    }
+  ]
+}
