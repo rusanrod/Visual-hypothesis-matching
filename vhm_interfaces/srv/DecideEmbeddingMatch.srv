@@ -1,0 +1,42 @@
+# DecideEmbeddingMatch.srv
+
+float32[] similarity_matrix
+int32 crop_count
+int32 reference_count
+
+string[] crop_names
+int32[] crop_file_indices
+
+int32 top_k
+int32 top_m
+float32 threshold
+
+float32 alpha
+float32 beta
+float32 gamma
+float32 rrf_k
+
+bool save_debug
+string experiment_id
+---
+bool success
+string message
+
+int32 best_crop_list_index
+int32 best_crop_file_index
+string best_crop_name
+
+float32 best_score
+float32 best_raw_score
+float32 best_mean_top_m_score
+float32 best_rrf_score
+int32 best_vote_count
+
+bool accepted
+
+int32[] crop_vote_counts
+float32[] crop_final_scores
+float32[] crop_max_raw_scores
+float32[] crop_mean_top_m_scores
+float32[] crop_rrf_scores
+string debug_json

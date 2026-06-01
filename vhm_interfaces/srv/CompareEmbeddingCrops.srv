@@ -5,18 +5,11 @@
 # "images"     -> carga imágenes recibidas en el request y calcula embeddings
 # "scene_<scene_num>"     -> carga imagenes desde carpeta y por escena
 
-string source_type
 string experiment_id
+string source_type
 
 sensor_msgs/Image[] crops
-
-bool return_similarity_matrix
-bool return_best_matches
 bool save_experiment
-
-int32 top_k
-float32 threshold
-
 ---
 bool success
 string message
@@ -28,10 +21,5 @@ int32 reference_count
 # similarity_matrix[crop_idx * reference_count + reference_idx]
 float32[] similarity_matrix
 
-# Mejor match global
-int32 best_crop_index
-float32 best_score
-
-bool accepted
-int32[] crop_vote_counts
-float32[] crop_vote_scores
+string[] crop_names
+int32[] crop_file_indices

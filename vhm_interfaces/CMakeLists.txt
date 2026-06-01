@@ -19,6 +19,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SegmentImage.srv"
   "srv/CompareEmbeddingCrops.srv"
   "srv/LoadEmbeddingReferences.srv"
+  "srv/DecideEmbeddingMatch.srv"
   "action/ExecuteVHM.action"
   DEPENDENCIES 
     sensor_msgs 
