@@ -1,6 +1,7 @@
 import time
 from pathlib import Path
 import json
+import re
 
 import cv2
 import torch
@@ -65,6 +66,7 @@ class EmbeddingCompareNode(Node):
     # === Callbacks ===
 
     def load_references_callback(self, request, response):
+        self.get_logger().info("Loading reference embeddings.")
         try:
             experiment_id = request.experiment_id or "test"
             source_type = request.source_type.strip().lower()
@@ -158,6 +160,9 @@ class EmbeddingCompareNode(Node):
             self.embedder.cleanup_gpu_memory()
 
     def compare_crops_callback(self, request, response):
+        self.get_logger().info(
+            f"Comparing crop embeddings using active_reference={self.active_experiment_id} "
+            f"source={self.reference_source} ")
         try:
             if self.reference_embeddings is None:
                 raise RuntimeError("No active reference embeddings loaded.")
@@ -170,56 +175,95 @@ class EmbeddingCompareNode(Node):
             crop_names = []
             crop_paths = []
             crops = []
+            crop_file_indices = []
 
+            # === Load crops from request ===
             if source_type == "images":
                 crops = self._ros_images_to_cv(request.crops)
+
                 crop_names = [
                     f"crop_{idx:03d}" 
                     for idx in range(len(crops))
                     ]
+                crop_file_indices = list(range(len(crops)))
             
-            elif source_type == "image_dir":
+            # === Load crops from results directory ===
+            else:
                 crops_dir = results_mgr.require_crops_dir()
-                crop_paths = results_mgr.collect_image_paths(crops_dir)
+
+                crop_paths = sorted(
+                    results_mgr.collect_image_paths(crops_dir),
+                    key=self._natural_crop_sort_key
+                )
 
                 if not crop_paths:
-                    raise RuntimeError(f"No crop images found in: {crops_dir}")
+                    raise RuntimeError(
+                        f"No crop images found in: {crops_dir}"
+                    )
 
-                for path in crop_paths:
-                    crop = cv2.imread(str(path))
-                    if crop is None:
-                        self.get_logger().warn(f"Could not read crop image: {path}")
+                # === image_dir -> todos ===
+                if source_type == "image_dir":
+                    filtered_paths = crop_paths
+
+                # === cualquier otra cosa -> prefijo ===
+                else:
+                    prefix = source_type
+
+                    filtered_paths = [
+                        p for p in crop_paths
+                        if p.stem.startswith(prefix)
+                    ]
+
+                    if not filtered_paths:
+                        raise RuntimeError(
+                            f"No crops found with prefix '{prefix}' "
+                            f"in {crops_dir}"
+                        )
+                
+                for path in filtered_paths:
+                    crop_idx = self._extract_crop_index(path)
+
+                    if crop_idx < 0:
+                        self.get_logger().warn(
+                            f"Could not extract crop index from filename: {path.name}"
+                        )
                         continue
+
+                    crop = cv2.imread(str(path))
+
+                    if crop is None:
+                        self.get_logger().warn(
+                            f"Could not read crop image: {path}"
+                        )
+                        continue
+
                     crops.append(crop)
                     crop_names.append(path.name)
-
-            else:
-                raise RuntimeError(
-                    f"Invalid source_type '{request.source_type}'. "
-                    "Use: 'image_dir' or 'images'."
-                )
-            
+                    crop_paths.append(path)
+                    crop_file_indices.append(self._extract_crop_index(path))
+                
             if not crops:
                 raise RuntimeError("No valid crops received.")
 
             crop_embeddings = self.embedder.encode_cv_images(crops).detach().cpu()
-            self.reference_embeddings = self.reference_embeddings.detach().cpu()
-            similarity = crop_embeddings @ self.reference_embeddings.T
+            reference_embeddings = self.reference_embeddings.detach().cpu()
             
-            top_k = getattr(request, "top_k", 3)
-            threshold = getattr(request, "threshold", 0.25)
+            similarity = crop_embeddings @ reference_embeddings.T
+            
+            response.success = True
+            response.message = "Embedding comparison completed."
 
-            voting_result = self._compute_reference_fusion(
-                similarity=similarity,
-                top_k=top_k,
-                threshold=threshold,
-            )
+            response.crop_count = int(similarity.shape[0])
+            response.reference_count = int(similarity.shape[1])
 
-            best_crop_index = voting_result["best_crop_index"]
-            best_score = voting_result["best_score"]
-            accepted = voting_result["accepted"]
+            response.similarity_matrix = [
+                float(x) for x in similarity.flatten().tolist()
+            ]
+
+            save_experiment = getattr(request, "save_experiment", False)
             
             save_experiment = getattr(request, "save_experiment", False)
+            
             if save_experiment:
                 paths = results_mgr.prepare_embedding_results_dir()
 
@@ -227,40 +271,20 @@ class EmbeddingCompareNode(Node):
                     "experiment_id": experiment_id,
                     "reference_source": self.reference_source,
                     "crop_source": source_type,
+
                     "crop_count": int(similarity.shape[0]),
                     "reference_count": int(similarity.shape[1]),
                     "embedding_dim": self.embedding_dim,
 
-
-                    "vote_parameters": {
-                        "alpha": voting_result["alpha"],
-                        "beta": voting_result["beta"],
-                        "gamma": voting_result["gamma"],
-                        "rrf_k": voting_result["rrf_k"],
-                        "top_k": voting_result["top_k"],
-                        "top_m": voting_result["top_m"],
-
-                        "threshold": float(threshold),
-                    },
-                    "results_summary": {
-                        "best_crop_index": best_crop_index,
-                        "best_score": best_score,
-                        "best_crop_name": crop_names[best_crop_index] if crop_names else None,
-                        "best_raw_score": voting_result["best_raw_score"],
-                        "best_mean_top_m_score": voting_result["best_mean_top_m_score"],
-                        "best_rrf_score": voting_result["best_rrf_score"],
-                        "best_vote_count": voting_result["best_vote_count"],
-
-                        "accepted": accepted,
-                    },
-
-                    "crop_vote_counts": voting_result["crop_vote_counts"],
-                    #"crop_vote_scores": voting_result["crop_vote_scores"],
-                    "reference_votes": voting_result["reference_votes"],
-
-                    #"crop_names": crop_names,
-                    #"crop_paths": [str(p) for p in crop_paths],
+                    "crop_names": crop_names,
+                    "crop_file_indices": crop_file_indices,
+                    "crop_paths": [str(p) for p in crop_paths],
+                    
                     "reference_metadata": self.reference_metadata,
+                    "similarity_shape": [
+                        int(similarity.shape[0]),
+                        int(similarity.shape[1]),
+                    ],
                     "created_at": time.strftime("%Y-%m-%d %H:%M:%S"),
                 }
 
@@ -276,26 +300,6 @@ class EmbeddingCompareNode(Node):
                     f"Comparison results saved: {paths['comparison_results_path']}"
                 )
 
-
-            response.success = True
-            response.message = "Embedding comparison completed."
-
-            response.crop_count = int(similarity.shape[0])
-            response.reference_count = int(similarity.shape[1])
-
-            if request.return_similarity_matrix:
-                response.similarity_matrix = [
-                    float(x) for x in similarity.flatten().tolist()
-                ]
-            else:
-                response.similarity_matrix = []
-
-            response.best_crop_index = best_crop_index
-            response.best_score = best_score
-            response.accepted = bool(accepted)
-            response.crop_vote_counts = voting_result["crop_vote_counts"]
-            #response.crop_vote_scores = voting_result["crop_vote_scores"]
-
             return response
 
         except Exception as e:
@@ -307,12 +311,6 @@ class EmbeddingCompareNode(Node):
             response.crop_count = 0
             response.reference_count = 0
             response.similarity_matrix = []
-
-            response.best_crop_index = -1
-            response.best_score = 0.0
-            response.accepted = False
-            response.crop_vote_counts = []
-            #response.crop_vote_scores = []
 
             return response
 
@@ -434,157 +432,27 @@ class EmbeddingCompareNode(Node):
 
         return str(pth_path)
         
-    def _compute_reference_fusion(
-        self,
-        similarity: torch.Tensor,
-        top_k: int = 3,
-        top_m: int = 3,
-        threshold: float = 0.75,
-        alpha: float = 0.60,
-        beta: float = 0.30,
-        gamma: float = 0.10,
-        rrf_k: float = 60.0,
-    ) -> dict:
-        """
-        similarity: [num_crops, num_references]
+    
+    
+    def _extract_crop_index(self, path: Path) -> int:
+        patterns = [
+            r"_crop_(\d+)",
+            r"crop_(\d+)",
+            r"crop(\d+)",
+        ]
 
-        Cada crop obtiene:
-        - max_raw_score: mejor similitud directa contra cualquier referencia
-        - mean_top_m_raw_score: promedio de sus mejores m similitudes
-        - rrf_score: score por rankings de cada referencia
-        - final_score: combinación ponderada
-        """
+        for pattern in patterns:
+            match = re.search(pattern, path.stem)
+            if match:
+                return int(match.group(1))
 
-        if similarity.ndim != 2:
-            raise RuntimeError(
-                f"Similarity matrix must be 2D. Got shape: {similarity.shape}"
-            )
+        return -1
 
-        num_crops, num_references = similarity.shape
-
-        if num_crops == 0 or num_references == 0:
-            raise RuntimeError("Empty similarity matrix.")
-
-        top_k = max(1, min(top_k, num_crops))
-        top_m = max(1, min(top_m, num_references))
-
-        # 1) Score fuerte: mejor referencia por crop
-        crop_max_raw_scores, crop_best_reference_indices = similarity.max(dim=1)
-
-        # 2) Score estable: promedio de las mejores M referencias por crop
-        crop_top_m_scores, _ = torch.topk(
-            similarity,
-            k=top_m,
-            dim=1,
-            largest=True,
-        )
-        crop_mean_top_m_scores = crop_top_m_scores.mean(dim=1)
-
-        # 3) Ranking fusion: cada referencia produce ranking de crops
-        rrf_scores = torch.zeros(
-            num_crops,
-            dtype=torch.float32,
-            device=similarity.device,
-        )
-
-        crop_vote_counts = torch.zeros(
-            num_crops,
-            dtype=torch.int32,
-            device=similarity.device,
-        )
-
-        reference_votes = []
-
-        for ref_idx in range(num_references):
-            ref_scores = similarity[:, ref_idx]
-
-            ranked_crop_indices = torch.argsort(
-                ref_scores,
-                descending=True,
-            )
-
-            vote_items = []
-
-            for rank, crop_idx_tensor in enumerate(ranked_crop_indices[:top_k]):
-                crop_idx = int(crop_idx_tensor.item())
-                raw_score = float(ref_scores[crop_idx].item())
-
-                # rank empieza en 0; usamos rank + 1 para fórmula RRF
-                rrf_increment = 1.0 / (rrf_k + rank + 1)
-
-                rrf_scores[crop_idx] += rrf_increment
-                crop_vote_counts[crop_idx] += 1
-
-                vote_items.append({
-                    "rank": int(rank),
-                    "crop_index": crop_idx,
-                    "raw_score": raw_score,
-                    "rrf_increment": float(rrf_increment),
-                })
-
-            reference_votes.append({
-                "reference_index": int(ref_idx),
-                "votes": vote_items,
-            })
-
-        # Normalizamos RRF para que quede aprox en [0, 1]
-        max_possible_rrf = num_references * (1.0 / (rrf_k + 1.0))
-        if max_possible_rrf > 0:
-            rrf_scores_norm = rrf_scores / max_possible_rrf
-        else:
-            rrf_scores_norm = rrf_scores
-
-        # 4) Fusión final
-        final_scores = (
-            alpha * crop_max_raw_scores
-            + beta * crop_mean_top_m_scores
-            + gamma * rrf_scores_norm
-        )
-
-        best_crop_index = int(torch.argmax(final_scores).item())
-        best_reference_index = int(crop_best_reference_indices[best_crop_index].item())
-
-        best_final_score = float(final_scores[best_crop_index].item())
-        best_raw_score = float(crop_max_raw_scores[best_crop_index].item())
-        best_mean_top_m_score = float(crop_mean_top_m_scores[best_crop_index].item())
-        best_rrf_score = float(rrf_scores_norm[best_crop_index].item())
-        best_vote_count = int(crop_vote_counts[best_crop_index].item())
-
-        accepted = best_final_score >= threshold
-
-        return {
-            "best_crop_index": best_crop_index,
-            "best_reference_index": best_reference_index,
-            "best_score": best_final_score,
-            "best_raw_score": best_raw_score,
-            "best_mean_top_m_score": best_mean_top_m_score,
-            "best_rrf_score": best_rrf_score,
-            "best_vote_count": best_vote_count,
-            "accepted": bool(accepted),
-            "threshold": float(threshold),
-            "top_k": int(top_k),
-            "top_m": int(top_m),
-            "alpha": float(alpha),
-            "beta": float(beta),
-            "gamma": float(gamma),
-            "rrf_k": float(rrf_k),
-            "crop_final_scores": [
-                float(x) for x in final_scores.detach().cpu().tolist()
-            ],
-            "crop_max_raw_scores": [
-                float(x) for x in crop_max_raw_scores.detach().cpu().tolist()
-            ],
-            "crop_mean_top_m_scores": [
-                float(x) for x in crop_mean_top_m_scores.detach().cpu().tolist()
-            ],
-            "crop_rrf_scores": [
-                float(x) for x in rrf_scores_norm.detach().cpu().tolist()
-            ],
-            "crop_vote_counts": [
-                int(x) for x in crop_vote_counts.detach().cpu().tolist()
-            ],
-            "reference_votes": reference_votes,
-        }
+    def _natural_crop_sort_key(self, path: Path):
+        crop_idx = self._extract_crop_index(path)
+        if crop_idx >= 0:
+            return (0, crop_idx)
+        return (1, path.name)
 
 
 def main(args=None):
