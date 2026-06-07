@@ -1,0 +1,207 @@
+{
+    "experiment_id": "scene_027",
+    "reference_source": "image_dir",
+    "crop_source": "image_dir",
+    "crop_count": 32,
+    "reference_count": 15,
+    "embedding_dim": 768,
+    "crop_names": [
+        "scene_027_crop_000.png",
+        "scene_027_crop_001.png",
+        "scene_027_crop_002.png",
+        "scene_027_crop_003.png",
+        "scene_027_crop_004.png",
+        "scene_027_crop_005.png",
+        "scene_027_crop_007.png",
+        "scene_027_crop_008.png",
+        "scene_027_crop_009.png",
+        "scene_027_crop_010.png",
+        "scene_027_crop_011.png",
+        "scene_027_crop_012.png",
+        "scene_027_crop_013.png",
+        "scene_027_crop_014.png",
+        "scene_027_crop_015.png",
+        "scene_027_crop_016.png",
+        "scene_027_crop_017.png",
+        "scene_027_crop_018.png",
+        "scene_027_crop_019.png",
+        "scene_027_crop_020.png",
+        "scene_027_crop_021.png",
+        "scene_027_crop_022.png",
+        "scene_027_crop_023.png",
+        "scene_027_crop_024.png",
+        "scene_027_crop_025.png",
+        "scene_027_crop_026.png",
+        "scene_027_crop_027.png",
+        "scene_027_crop_028.png",
+        "scene_027_crop_029.png",
+        "scene_027_crop_030.png",
+        "scene_027_crop_031.png",
+        "scene_027_crop_032.png"
+    ],
+    "crop_file_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+    ],
+    "crop_paths": [
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_000.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_001.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_002.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_003.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_004.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_005.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_007.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_008.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_009.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_010.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_011.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_012.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_013.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_014.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_015.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_016.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_017.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_018.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_019.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_020.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_021.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_022.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_023.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_024.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_025.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_026.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_027.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_028.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_029.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_030.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_031.png",
+        "/home/rusanrod/vhm_ws/src/vhm_results/image_segmentations/scene_027/crops/scene_027_crop_032.png"
+    ],
+    "reference_metadata": [
+        {
+            "index": 0,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_000_seed_42.png",
+            "name": "synthetic_000_seed_42.png"
+        },
+        {
+            "index": 1,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_001_seed_42.png",
+            "name": "synthetic_001_seed_42.png"
+        },
+        {
+            "index": 2,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_002_seed_42.png",
+            "name": "synthetic_002_seed_42.png"
+        },
+        {
+            "index": 3,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_003_seed_42.png",
+            "name": "synthetic_003_seed_42.png"
+        },
+        {
+            "index": 4,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_004_seed_42.png",
+            "name": "synthetic_004_seed_42.png"
+        },
+        {
+            "index": 5,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_005_seed_43.png",
+            "name": "synthetic_005_seed_43.png"
+        },
+        {
+            "index": 6,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_006_seed_43.png",
+            "name": "synthetic_006_seed_43.png"
+        },
+        {
+            "index": 7,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_007_seed_43.png",
+            "name": "synthetic_007_seed_43.png"
+        },
+        {
+            "index": 8,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_008_seed_43.png",
+            "name": "synthetic_008_seed_43.png"
+        },
+        {
+            "index": 9,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_009_seed_43.png",
+            "name": "synthetic_009_seed_43.png"
+        },
+        {
+            "index": 10,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_010_seed_44.png",
+            "name": "synthetic_010_seed_44.png"
+        },
+        {
+            "index": 11,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_011_seed_44.png",
+            "name": "synthetic_011_seed_44.png"
+        },
+        {
+            "index": 12,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_012_seed_44.png",
+            "name": "synthetic_012_seed_44.png"
+        },
+        {
+            "index": 13,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_013_seed_44.png",
+            "name": "synthetic_013_seed_44.png"
+        },
+        {
+            "index": 14,
+            "source": "image_dir",
+            "image_path": "/home/rusanrod/vhm_ws/src/vhm_results/generated_references/tennis_shoes_01_15/images/synthetic_014_seed_44.png",
+            "name": "synthetic_014_seed_44.png"
+        }
+    ],
+    "similarity_shape": [
+        32,
+        15
+    ],
+    "created_at": "2026-06-07 16:26:12"
+}
